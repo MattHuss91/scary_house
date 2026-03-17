@@ -29,7 +29,7 @@ define steward = Character(name="Steward", color="#84c2e6", who_outlines=(2,"#00
 ## Define Audio
 ################################################################################
 
-define audio.rain = "audio/sfx/rain.wav"
+define audio.rain = "audio/sfx/rain.ogg"
 
 ################################################################################
 ## DEFAULT VARIABLES

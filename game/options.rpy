@@ -15,6 +15,10 @@ define config.window_icon = None
 define config.version = "0.0.1"
 
 
+## Text#########################################################################
+define config.default_text_cps = 40
+
+
 ## Sounds and music ############################################################
 
 define config.has_sound = True
@@ -57,7 +61,7 @@ define config.window_hide_transition = Dissolve(.2)
 
 
 ## Preference defaults #########################################################
-default preferences.text_cps = 0
+default preferences.text_cps = 40
 default preferences.afm_time = 15
 
 ## Icon ########################################################################

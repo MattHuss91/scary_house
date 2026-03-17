@@ -13,12 +13,12 @@
 
 ## The game starts here.
 label start:
-
+    $ preferences.text_cps = 40
 ################################################################################
 ## Scene 1
 ################################################################################
 
     scene test with slow_dissolve 
-    play sound audio.rain fadein 2.0 loop
+    play audio audio.rain fadein 2.0
     narrator "The Scary House"
     narrator "It's Frightening"

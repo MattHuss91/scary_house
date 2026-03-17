@@ -178,19 +178,20 @@ init -1 python:
         "audio/bleeps/bleep{:03d}.ogg".format(i) for i in range(1, 31)
     ]
 
-    def bleep_callback(event, interact=True, **kwargs):
-        """
-        Plays a random bleep from the pack of 30 while text is typing,
-        stops when the line finishes, and resets for the next line.
-        """
-        if event == "show":
-            bleep = _random.choice(_bleep_files)
-            renpy.sound.play(bleep, channel="blips", loop=True)
-        elif event == "slow_done":
-            renpy.sound.stop(channel="blips")
-        elif event == "end":
-            renpy.sound.stop(channel="blips")
+    _char_count = [0]
 
+    def bleep_callback(event, interact=True, **kwargs):
+        if event == "show":
+            _char_count[0] = 0
+
+        elif event == "slow_begin":
+            _char_count[0] += 1
+            if _char_count[0] % 2 == 0:
+                bleep = _random.choice(_bleep_files)
+                renpy.sound.play(bleep, channel="blips", loop=False)
+
+        elif event in ("slow_done", "end"):
+            renpy.sound.stop(channel="blips")
 ################################################################################
 ## IMAGE FILTERS / TINT EFFECTS
 ################################################################################
