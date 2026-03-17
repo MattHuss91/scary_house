@@ -1,51 +1,35 @@
 ################################################################################
-## DEFINITIONS.RPY - Characters, Images, Variables & Configuration
-################################################################################
-## This file is for defining all your game's characters, default variables,
-## image declarations, and audio channels.
-##
-## Keep all your definitions here so they're easy to find and update.
-################################################################################
-
-################################################################################
 ## CHARACTERS
 ################################################################################
-## Define your characters here. The color argument sets the name color.
-## You can also set voice/text properties per character.
-##
-## Character properties you can use:
-##   color          - Name color (hex like "#c8ffc8" or color name)
-##   who_color      - Same as color
-##   what_color     - Dialogue text color
-##   image          - Side image tag for this character
-##   voice_tag      - Tag for voice auto-play (used with auto voice)
-##   callback       - Called when dialogue is shown (used for bleeps)
-##   kind           - Base character to inherit from (e.g. nvl_narrator)
 ##
 ## See effects.rpy for the bleep_callback if you want typing sounds.
 
 ## --- Narrator (no name shown) ---
-define narrator = Character(ctc="ctc", ctc_position="fixed")
+define narrator = Character(None, what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
 
-## --- Protagonist (the player character) ---
-define protagonist = Character(
-    _("Me"),
-    color="#c8ffc8",
-)
+## --- characters
+define jake = Character(name="Jake", color="#4A6FA5", who_outlines=[(2, "#000000")],callback=bleep_callback)
+define jon = Character(name="Jon", color= "#3b61fa", who_outlines=(2,"#000000"), callback=bleep_callback)
+define mike = Character(name="Mike", color="#eaff00", who_outlines=(2,"#000000"), callback=bleep_callback)
+define tom = Character(name="Tom", color="#00ff1a", who_outlines=(2,"#000000"), callback=bleep_callback)
+define butler = Character(name="The Butler", color="#0eeedf", who_outlines=(2,"#000000"), callback=bleep_callback)
+define count = Character(name="Count Vincent", color="#ff0000", who_outlines=(2,"#000000"), callback=bleep_callback)
+define silly1 = Character(name="Silly Person 1", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
+define silly2 = Character(name="Silly Person 2", color="#f377fc", who_outlines=(2,"#000000"), callback=bleep_callback)
+define silly3 = Character(name="Silly Person 3", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
+define bat = Character(name="The Bat", color="#080009", who_outlines=(2,"#000000"), callback=bleep_callback)
+define morticus = Character(name="Morticus", color="#8233c7", who_outlines=(2,"#000000"), callback=bleep_callback)
+define prompt = Character(name="Stage Hand", color="#c87076", who_outlines=(2,"#000000"), callback=bleep_callback)
+define aud = Character(name="Audience Member", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
+define shelly = Character(name="Shelly", color="#426f1c", who_outlines=(2,"#000000"), callback=bleep_callback)
+define posh = Character(name="Posh Person", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
+define steward = Character(name="Steward", color="#84c2e6", who_outlines=(2,"#000000"), callback=bleep_callback)
 
-## --- Example Character ---
-## Uncomment and modify to create your characters:
-# define e = Character(
-#     _("Eileen"),
-#     color="#c8c8ff",
-#     image="eileen",             ## For side images: "eileen" tag
-#     ## callback=bleep_callback, ## Uncomment for typing bleeps
-# )
+################################################################################
+## Define Audio
+################################################################################
 
-## --- NVL Mode Narrator (for novel-style text) ---
-## Uncomment if you want NVL mode support:
-# define nvl_narrator = Character(None, kind=nvl)
-
+define audio.rain = "audio/sfx/rain.wav"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -90,6 +74,8 @@ default seen_intro = False
 ## --- Locked Achievement Image (used by achievements plugin) ---
 ## Replace with your own locked achievement icon
 image locked_achievement = Text("?", size=80, color="#888")
+
+image test = "images/bg/test.jpg"
 
 
 ################################################################################

@@ -1,0 +1,33 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/definitions.rpy", line 8, in script
+    define narrator = Character(None, what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+  File "game/definitions.rpy", line 8, in <module>
+    define narrator = Character(None, what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+                                                                                                                       ^^^^^^^^^^^^^^ 
+NameError: name 'bleep_callback' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Traceback (most recent call last):
+  File "game/definitions.rpy", line 8, in script
+    define narrator = Character(None, what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+  File "renpy/ast.py", line 2463, in execute
+    self.set()
+    ~~~~~~~~^^
+  File "renpy/ast.py", line 2475, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "renpy/python.py", line 1298, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+           ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "game/definitions.rpy", line 8, in <module>
+    define narrator = Character(None, what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+                                                                                                                       ^^^^^^^^^^^^^^ 
+NameError: name 'bleep_callback' is not defined
+
+Windows-11-10.0.26200-SP0 AMD64
+Ren'Py 8.5.2.26010301
+Scary House 0.0.1
+Tue Mar 17 15:27:40 2026
