@@ -5,7 +5,7 @@
 ## See effects.rpy for the bleep_callback if you want typing sounds.
 
 ## --- Narrator (no name shown) ---
-define narrator = Character(None, what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+define narrator = Character(name="Narrator", what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
 
 ## --- characters
 define jake = Character(name="Jake", color="#4A6FA5", who_outlines=[(2, "#000000")],callback=bleep_callback)
@@ -30,6 +30,7 @@ define steward = Character(name="Steward", color="#84c2e6", who_outlines=(2,"#00
 ################################################################################
 
 define audio.rain = "audio/sfx/rain.ogg"
+define audio.credit_theme = "audio/music/credit_theme.mp3"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -76,27 +77,168 @@ default seen_intro = False
 image locked_achievement = Text("?", size=80, color="#888")
 
 image test = "images/bg/test.jpg"
+image forest_night = "images/bg/forest_night.png"
+image narrator = im.Scale("images/characters/narrator.png", 1000, 1400)
+image silly1 =im.Scale("images/characters/narrator.png", 1000, 1400)
+image bg forest scroll_stop:
+    "images/bg/forest_night_scroll.png"
+    subpixel True
+    xanchor 0 xpos 0
+    linear 6.0 xanchor 0 xpos -1920
+image la_drover ="images/cg/la_drover.png"
 
 
-################################################################################
-## AUDIO DEFINITIONS
-################################################################################
-## Define audio files for easy reference in your script.
-## You can then use: play music main_theme
-##
-## Folder structure:
-##   audio/music/   - Background music
-##   audio/sfx/     - Sound effects
-##   audio/voice/   - Voice lines
-##   audio/bleeps/  - Dialogue bleep sounds
+###############################################################################
+## Define Opening Credits
+###############################################################################
 
-## --- Music ---
-# define audio.main_theme = "audio/music/main_theme.ogg"
-# define audio.battle_theme = "audio/music/battle.ogg"
+transform scroll_credits:
+    ypos 1080
+    linear 40.0 ypos -6000
 
-## --- Sound Effects ---
-# define audio.click = "audio/sfx/click.ogg"
-# define audio.door = "audio/sfx/door_open.ogg"
+screen opening_credits():
+    frame:
+        xfill True
+        yfill True
+        background "#000000"
 
-## --- Bleep Sounds (from dmochas dialogue bleeps pack) ---
-## These are pre-loaded from audio/bleeps/. See effects.rpy for usage.
+        vbox:
+            xalign 0.5
+            spacing 60
+            at scroll_credits
+
+            ## --- Jake ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}The Rather Terrifying{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Jake Saunders{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Jon ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}They say the bogeyman looks under his bed for{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Jon Bowen{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Mike ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}He'll kill you before you know he's there{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Mike Rhodes{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Tom Broughton ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}He's really rather mortifying{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Tom Broughton{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Tom Rich ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}You'll personally wet yourself{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Tom Rich as The Butler{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Matt Husselbury ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}He frightens little boys{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Matt Husselbury as Count Vincent of Stoke-on-Trent{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Matt Schofield ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}He doesn't always wipe his feet{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Matt Schofield as The Narrator{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 80
+
+            ## --- Chris Stevens ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=40}{color=#8B0000}{font=fonts/bloody.ttf}He isn't in this film{/font}{/color}{/size}":
+                    xalign 0.5
+                add Solid("#8B0000") size (200, 300)
+                text "{size=50}{color=#FF0000}{font=fonts/bloody.ttf}Chris Stevens{/font}{/color}{/size}":
+                    xalign 0.5
+
+            null height 120
+
+            ## --- Technicolor gag ---
+            vbox:
+                xalign 0.5
+                spacing 20
+                text "{size=60}{color=#FF0000}{font=fonts/bloody.ttf}Filmed in glorious Technicolor*{/font}{/color}{/size}":
+                    xalign 0.5
+                text "{size=25}{color=#FF0000}*Combination of the word \"Techni\" and the American variant on \"colour\"{/color}{/size}":
+                    xalign 0.5
+                text "{size=18}{color=#FF0000}Ice cream will be available at the interval - today your stewardess is Shelly{/color}{/size}":
+                    xalign 0.5
+
+            null height 1080
+
+###############################################################################
+## Transforms - Character positions
+###############################################################################
+
+transform char_left:
+    xalign 0.15
+    yalign 1.0
+    zoom 0.8
+
+transform char_centre:
+    xalign 0.5
+    yalign 1.0
+    zoom 0.8
+
+transform char_right:
+    xalign 0.85
+    yalign 1.0
+    zoom 0.8
+
+transform char_fade_in:
+    alpha 0.0
+    linear 0.3 alpha 1.0
+
+transform char_fade_out:
+    alpha 1.0
+    linear 0.3 alpha 0.0

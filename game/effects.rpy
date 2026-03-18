@@ -113,6 +113,10 @@ transform spin:
     linear 1.0 rotate 360
     repeat
 
+transform drover_enter_stop:
+    xpos 1920 yalign 1.0
+    linear 6.0 xpos 640
+
 ## --- Click-to-Continue Indicator ---
 transform ctc:
     alpha 0.0
@@ -174,24 +178,20 @@ init python:
 init -1 python:
     import random as _random
 
+    renpy.music.register_channel("blips", mixer="sfx", loop=True)
+
     _bleep_files = [
         "audio/bleeps/bleep{:03d}.ogg".format(i) for i in range(1, 31)
     ]
 
-    _char_count = [0]
-
     def bleep_callback(event, interact=True, **kwargs):
         if event == "show":
-            _char_count[0] = 0
+            bleep = _random.choice(_bleep_files)
+            renpy.music.play(bleep, channel="blips", loop=True)
 
-        elif event == "slow_begin":
-            _char_count[0] += 1
-            if _char_count[0] % 2 == 0:
-                bleep = _random.choice(_bleep_files)
-                renpy.sound.play(bleep, channel="blips", loop=False)
+        elif event == "slow_done":
+            renpy.music.stop(channel="blips", fadeout=0.1)
 
-        elif event in ("slow_done", "end"):
-            renpy.sound.stop(channel="blips")
 ################################################################################
 ## IMAGE FILTERS / TINT EFFECTS
 ################################################################################
