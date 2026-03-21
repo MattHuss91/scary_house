@@ -5,25 +5,26 @@
 ## See effects.rpy for the bleep_callback if you want typing sounds.
 
 ## --- Narrator (no name shown) ---
-define narrator = Character(name="Narrator", what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+define the_narrator = Character(name="Narrator", what_italic=True, what_color="#c0c0c0", what_outlines=[(2, "#000000")], callback=bleep_callback)
+define vo = Character(None, what_italic=True, what_color="#ffeded", what_outlines=[(2, "#000000")], callback=bleep_callback)
 
 ## --- characters
 define jake = Character(name="Jake", color="#4A6FA5", who_outlines=[(2, "#000000")],callback=bleep_callback)
-define jon = Character(name="Jon", color= "#3b61fa", who_outlines=(2,"#000000"), callback=bleep_callback)
-define mike = Character(name="Mike", color="#eaff00", who_outlines=(2,"#000000"), callback=bleep_callback)
-define tom = Character(name="Tom", color="#00ff1a", who_outlines=(2,"#000000"), callback=bleep_callback)
-define butler = Character(name="The Butler", color="#0eeedf", who_outlines=(2,"#000000"), callback=bleep_callback)
-define count = Character(name="Count Vincent", color="#ff0000", who_outlines=(2,"#000000"), callback=bleep_callback)
-define silly1 = Character(name="Silly Person 1", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
-define silly2 = Character(name="Silly Person 2", color="#f377fc", who_outlines=(2,"#000000"), callback=bleep_callback)
-define silly3 = Character(name="Silly Person 3", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
-define bat = Character(name="The Bat", color="#080009", who_outlines=(2,"#000000"), callback=bleep_callback)
-define morticus = Character(name="Morticus", color="#8233c7", who_outlines=(2,"#000000"), callback=bleep_callback)
-define prompt = Character(name="Stage Hand", color="#c87076", who_outlines=(2,"#000000"), callback=bleep_callback)
-define aud = Character(name="Audience Member", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
-define shelly = Character(name="Shelly", color="#426f1c", who_outlines=(2,"#000000"), callback=bleep_callback)
-define posh = Character(name="Posh Person", color="#ee00ff", who_outlines=(2,"#000000"), callback=bleep_callback)
-define steward = Character(name="Steward", color="#84c2e6", who_outlines=(2,"#000000"), callback=bleep_callback)
+define jon = Character(name="Jon", color="#3b61fa", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define mike = Character(name="Mike", color="#eaff00", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define tom = Character(name="Tom", color="#00ff1a", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define butler = Character(name="The Butler", color="#0eeedf", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define count = Character(name="Count Vincent", color="#ff0000", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define silly1 = Character(name="Silly Person 1", color="#ee00ff", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define silly2 = Character(name="Silly Person 2", color="#f377fc", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define silly3 = Character(name="Silly Person 3", color="#ee00ff", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define bat = Character(name="The Bat", color="#080009", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define morticus = Character(name="Morticus", color="#8233c7", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define prompt = Character(name="Stage Hand", color="#c87076", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define aud = Character(name="Audience Member", color="#ee00ff", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define shelly = Character(name="Shelly", color="#426f1c", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define posh = Character(name="Posh Person", color="#ee00ff", who_outlines=[(2, "#000000")], callback=bleep_callback)
+define steward = Character(name="Steward", color="#84c2e6", who_outlines=[(2, "#000000")], callback=bleep_callback)
 
 ################################################################################
 ## Define Audio
@@ -31,6 +32,7 @@ define steward = Character(name="Steward", color="#84c2e6", who_outlines=(2,"#00
 
 define audio.rain = "audio/sfx/rain.ogg"
 define audio.credit_theme = "audio/music/credit_theme.mp3"
+define audio.horn = "audio/sfx/horn.wav"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -76,17 +78,37 @@ default seen_intro = False
 ## Replace with your own locked achievement icon
 image locked_achievement = Text("?", size=80, color="#888")
 
+####Backgrounds#####
+
 image test = "images/bg/test.jpg"
 image forest_night = "images/bg/forest_night.png"
-image narrator = im.Scale("images/characters/narrator.png", 1000, 1400)
-image silly1 =im.Scale("images/characters/narrator.png", 1000, 1400)
 image bg forest scroll_stop:
     "images/bg/forest_night_scroll.png"
     subpixel True
     xanchor 0 xpos 0
     linear 6.0 xanchor 0 xpos -1920
-image la_drover ="images/cg/la_drover.png"
 
+#####Characters#####
+image the_narrator = im.Scale("images/characters/narrator.png", 1000, 1400)
+image silly1 ="images/characters/silly1.png"
+image tom = "images/characters/tom.png"
+image jon = "images/characters/jon.png"
+image jake = "images/characters/jake.png"
+image mike = "images/characters/jon.png"
+image butler = "images/characters/butler.png"
+image count = "images/characters/count.png"
+image silly2 = "images/characters/silly2.png"
+image silly 3 = "images/characters/silly3.png"
+image bat = "images/characters/bat.png"
+image morticus = "images/characters/morticus.png"
+image prompt = "images/characters/stagehand.png"
+image aud = "images/characters/aud.png"
+image shelly = "images/characters/shelly.png"
+image posh = "images/characters/posh.png"
+image steward = "images/characters/steward.png"
+
+######Objects####
+image la_drover ="images/cg/la_drover.png"
 
 ###############################################################################
 ## Define Opening Credits

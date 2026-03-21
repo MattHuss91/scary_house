@@ -135,16 +135,18 @@ transform ctc:
 init python:
     import random
 
-    def camera_shake(duration=0.5, intensity=10):
-        """Shake the screen for a given duration and intensity."""
-        renpy.with_statement(None)
-        start = renpy.time.time()
-        while renpy.time.time() - start < duration:
-            xoff = random.randint(-intensity, intensity)
-            yoff = random.randint(-intensity, intensity)
-            renpy.show("_layer master", at_list=[Transform(xoffset=xoff, yoffset=yoff)])
-            renpy.pause(0.03, hard=True)
-        renpy.show("_layer master", at_list=[Transform(xoffset=0, yoffset=0)])
+    def camera_shake(duration=0.4, intensity=10):
+        """Shake the screen by briefly offsetting the master layer."""
+        import time
+        steps = 8
+        step_time = duration / steps
+        for i in range(steps):
+            factor = 1.0 - (float(i) / steps)
+            xoff = random.uniform(-intensity, intensity) * factor
+            yoff = random.uniform(-intensity, intensity) * factor
+            renpy.show_layer_at([Transform(xoffset=xoff, yoffset=yoff)], layer="master")
+            renpy.pause(step_time, hard=True)
+        renpy.show_layer_at([Transform(xoffset=0, yoffset=0)], layer="master")
 
 
 ################################################################################

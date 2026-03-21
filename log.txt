@@ -1,34 +1,35 @@
-2026-03-18 17:32:40 UTC
+2026-03-21 09:10:48 UTC
 Windows-11-10.0.26200-SP0
 Ren'Py 8.5.2.26010301
 
-Early init took 54 ms
-Loading error handling took 25 ms
-Loading script took 237 ms
-Loading save slot metadata took 47 ms
-Loading persistent took 1 ms
-Running init code took 73 ms
-Loading analysis data took 5 ms
-Analyze and compile ATL took 1 ms
-Reloading save slot metadata took 15 ms
+Early init took 71 ms
+Loading error handling took 194 ms
+Loading script took 2296 ms
+Loading save slot metadata took 371 ms
+Loading persistent took 0 ms
+ - Init at game/styles.rpy:11 took 284 ms.
+Running init code took 422 ms
+Loading analysis data took 36 ms
+Analyze and compile ATL took 5 ms
+Reloading save slot metadata took 260 ms
 Backing up script files to 'C:\\Users\\mhuss\\AppData\\Roaming/RenPy/backups\\scary_house':
-Dump and make backups took 55 ms
+Dump and make backups took 102 ms
 Cleaning cache took 0 ms
 Making clean stores took 0 ms
-Initial gc took 46 ms
+Initial gc took 74 ms
 DPI scale factor: 1.250000
 nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: Disabled thread optimizations.
-Creating interface object took 369 ms
+Creating interface object took 574 ms
 Init translation took 0 ms
 Cleaning stores took 0 ms
-Load screen analysis took 0 ms
-Analyze screens took 9 ms
-Save screen analysis took 12 ms
-Save pyanalysis took 0 ms
-Save bytecode took 25 ms
+Load screen analysis took 34 ms
+Analyze screens took 14 ms
+Save screen analysis took 25 ms
+Save pyanalysis took 8 ms
+Save bytecode took 37 ms
 Running _start took 1 ms
-Interface start took 817 ms
+Interface start took 1394 ms
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1200)
@@ -40,91 +41,19 @@ Version: '4.6.0 NVIDIA 581.60'
 Display Info: <Info({'bitsize': 32, 'bytesize': 4, 'masks': (16711680, 65280, 255, 0), 'shifts': (16, 8, 0, 0), 'losses': (0, 0, 0, 8), 'current_w': 1920, 'current_h': 1200, 'refresh_rate': 165, 'hw': False, 'wm': True, 'video_mem': 268435456, 'blit_hw': False, 'blit_hw_CC': False, 'blit_hw_A': False, 'blit_sw': False, 'blit_sw_CC': False, 'blit_sw_A': False})>
 Screen sizes: virtual=(1920, 1080) physical=(1804, 1015) drawable=(1804, 1015)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "game/script.rpy", line 57, in script
-    silly1 "Is your name Terry?"
-  File "renpy/ast.py", line 2925, in execute
-    Say.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "renpy/ast.py", line 991, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/exports/sayexports.py", line 129, in say
-    who(what, *args, **kwargs)
-    ~~~^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/character.py", line 1565, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/character.py", line 1220, in do_display
-    display_say(who, what, self.do_show, **display_args)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/character.py", line 902, in display_say
-    rv = renpy.ui.interact(mouse="say", type=type, roll_forward=roll_forward)
-         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ui.py", line 306, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/core.py", line 2154, in interact
-    repeat, rv = self.interact_core(
-                 ~~~~~~~~~~~~~~~~~~^
-        preloads=preloads,
-        ^^^^^^^^^^^^^^^^^^
-    ...<4 lines>...
-        **kwargs,
-        ^^^^^^^^^
-    )
-    ^
-  File "renpy/display/core.py", line 2700, in interact_core
-    root_widget.visit_all(lambda d: d.per_interact())
-    ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 457, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 457, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 457, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/screen.py", line 508, in visit_all
-    self.child.visit_all(callback, seen=None)
-    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 457, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 457, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-  File "renpy/display/displayable.py", line 457, in visit_all
-    d.visit_all(callback, seen)
-    ~~~~~~~~~~~^^^^^^^^^^^^^^^^
-[Previous line repeated 1 more time]
-  File "renpy/display/displayable.py", line 459, in visit_all
-    callback(self)
-    ~~~~~~~~^^^^^^
-  File "renpy/display/core.py", line 2700, in <lambda>
-    root_widget.visit_all(lambda d: d.per_interact())
-                                    ~~~~~~~~~~~~~~^^ 
-  File "renpy/text/text.py", line 2375, in per_interact
-    if self.style.slow_abortable:
-       ^^^^^^^^^^^^^^^^^^^^^^^^^ 
-  File "tmp/gen3-static/styleclass.pxi", line 621, in renpy.styledata.styleclass.Style.slow_abortable.__get__
-  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
-  File "renpy/style.pyx", line 717, in renpy.style.build_style
-  File "renpy/style.pyx", line 714, in renpy.style.build_style
-  File "tmp/gen3-static/style_functions.pyx", line 874, in style_functions.outlines_property
-  File "renpy/styledata/styleutil.py", line 60, in expand_outlines
-    if len(i) == 2:
-       ~~~^^^      
-TypeError: object of type 'int' has no len()
-
-While processing the outlines property of anonymous style:
-  File "game/script.rpy", line 57, in script
-    silly1 "Is your name Terry?"
-  File "tmp/gen3-static/styleclass.pxi", line 621, in renpy.styledata.styleclass.Style.slow_abortable.__get__
-  File "renpy/style.pyx", line 493, in renpy.style.StyleCore._get
-  File "renpy/style.pyx", line 717, in renpy.style.build_style
-  File "renpy/style.pyx", line 714, in renpy.style.build_style
-  File "tmp/gen3-static/style_functions.pyx", line 874, in style_functions.outlines_property
-TypeError: object of type 'int' has no len()
+Cleaning stores took 0 ms
+Load screen analysis took 40 ms
+Analyze screens took 0 ms
+Running _start took 3 ms
+Cleaning stores took 0 ms
+Load screen analysis took 12 ms
+Analyze screens took 0 ms
+Running _start took 1 ms
+Cleaning stores took 1 ms
+Load screen analysis took 17 ms
+Analyze screens took 0 ms
+Running _start took 1 ms
+Cleaning stores took 0 ms
+Load screen analysis took 19 ms
+Analyze screens took 0 ms
+Running _start took 1 ms
