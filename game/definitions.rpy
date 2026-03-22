@@ -32,7 +32,9 @@ define steward = Character(name="Steward", color="#84c2e6", who_outlines=[(2, "#
 
 define audio.rain = "audio/sfx/rain.ogg"
 define audio.credit_theme = "audio/music/credit_theme.mp3"
-define audio.horn = "audio/sfx/horn.wav"
+define audio.horn = "audio/sfx/horn.ogg"
+define audio.window ="audio/sfx/window.ogg"
+define audio.car = "audio/sfx/break.ogg"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -87,6 +89,8 @@ image bg forest scroll_stop:
     subpixel True
     xanchor 0 xpos 0
     linear 6.0 xanchor 0 xpos -1920
+image cinema = "images/bg/cinema.png"
+image scary_door = "images/bg/scary_door.png"
 
 #####Characters#####
 image the_narrator = im.Scale("images/characters/narrator.png", 1000, 1400)

@@ -31,7 +31,7 @@ label start:
 ################################################################################
 
     scene forest_night with slow_dissolve 
-    play audio audio.rain fadein 0.5 loop
+    play sound audio.rain fadein 0.5 loop
     show the_narrator at char_centre
     with dissolve
     the_narrator "Oh hello! I didn't hear you approach. You know why you're here, I am going to tell you a tale of strange consequences."
@@ -41,12 +41,17 @@ label start:
 
     scene black with slow_dissolve
     show bg forest scroll_stop
+    play sound audio.car
     show la_drover at drover_enter_stop
     pause
       
 
+    
     vo "Tom is trying to get the Landrover to go, he is whacking it with a hammer. Jake sits next to him. Jon and Mike are in the back."
+    play sound audio.window
     vo "Tom winds down the window"
+    
+    
 
     show silly1 at char_left
     with dissolve
@@ -58,6 +63,7 @@ label start:
     with dissolve
     tom "???????"
     vo "Tom winds the window back up without saying a word"
+    play sound audio.window
     hide tom with dissolve
     hide silly1 with dissolve
 
@@ -74,6 +80,7 @@ label start:
     show silly2 at char_left
     $ camera_shake()
     show jake at char_right
+    play sound audio.window
     with dissolve
     jake "Oh 'eck!"
     silly2 "I AM DRACOREX THE DESTROYER OF WORLDS!"
@@ -102,6 +109,7 @@ label start:
     show tom at char_left
     with dissolve
     vo "Tom whacks the steering wheel again, then sits forward with his head in his hands."
+    play sound audio.horn
     $ camera_shake
 
     tom "Oh god, why???"
@@ -117,15 +125,42 @@ label start:
     jon "Haven't you got one?"
     jake "I don't carry a phone, this strange woman keeps texting me and saying..."
     hide jake with dissolve
-    hide join with dissolve
+    hide jon with dissolve
 
-    play sound audio.horn
+    
 
     vo "Inside, TOM is necking a bottle and JON is rocking backwards and forwards hugging a Bible. JAKE is bewildered at his friends actions and MIKE is leaning forwards."
 
     show mike at char_right
     with dissolve
     mike "Well tell us more then!"
+    hide  mike with dissolve
+
+    show the_narrator at char_centre
+    with dissolve
+    the_narrator "So, it was eventually realised that nobody in the car had a phone...except for Mike, but he didn't say anything, and I won't explain why until later on in the story."
+    the_narrator "Without this knowledge, the group decided that three would go and look for help whilst the fourth remained behind to keep an eye on the car."
+    the_narrator "After a few rounds of cards and some golf, it was decided that Jake, Jon and Tom would go. Then Tom revealed that he was pregnant and couldn't possibly leave the car, so Mike had to go."
+    the_narrator "And as the three walked through the very dark and horrible forest, they stumbled across a scary house!!!"
+    stop sound fadeout 0.5
+
+    ######################################################
+    ####Scene 2####################
+    ######################################################
+
+    scene cinema with slow_dissolve
+    show aud at char_left
+    aud "Shelly!"
+    show shelly at char_right
+    shelly "What?!"
+    aud "What ya doin' after the film?"
+    shelly "Nout with you sunshine!"
+
+    ######################################################
+    ####Scene 3####################
+    ######################################################
+
+    scene scary_door with slow_dissolve  
 
     
 
