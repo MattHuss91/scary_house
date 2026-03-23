@@ -43,6 +43,13 @@ define horn_happy = Achievement(
     unlocked_image="images/achievements/horn_happy.png",
 )
 
+define disco_fever = Achievement(
+    name=_("Disco Fever"),
+    id="disco_fever",
+    description=_("Hit every single note in the ABBA dance scene. All of them."),
+    unlocked_image="images/achievements/disco_fever.png",
+)
+
 ################################################################################
 ## SCREENS
 ################################################################################

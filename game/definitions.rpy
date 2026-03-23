@@ -36,6 +36,8 @@ define audio.horn = "audio/sfx/horn.ogg"
 define audio.window ="audio/sfx/window.ogg"
 define audio.car = "audio/sfx/break.ogg"
 define audio.intermission ="audio/music/intermission.ogg"
+define audio.abba = "audio/music/abba.ogg"
+define audio.record_scratch = "audio/sfx/record_scratch.mp3"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -92,6 +94,8 @@ image bg forest scroll_stop:
     linear 6.0 xanchor 0 xpos -1920
 image cinema = "images/bg/cinema.png"
 image scary_door = "images/bg/scary_door.png"
+image lobby = "images/bg/lobby.png"
+image palor = "images/bg.palor.png"
 
 #####Characters#####
 image the_narrator ="images/characters/narrator.png"
