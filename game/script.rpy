@@ -31,7 +31,7 @@ label start:
 ################################################################################
 
     scene forest_night with slow_dissolve 
-    play sound audio.rain fadein 0.5 loop
+    play music audio.rain fadein 0.5 loop
     show the_narrator at char_centre
     with dissolve
     the_narrator "Oh hello! I didn't hear you approach. You know why you're here, I am going to tell you a tale of strange consequences."
@@ -62,8 +62,8 @@ label start:
     show tom at char_right
     with dissolve
     tom "???????"
-    vo "Tom winds the window back up without saying a word"
     play sound audio.window
+    vo "Tom winds the window back up without saying a word"
     hide tom with dissolve
     hide silly1 with dissolve
 
@@ -100,6 +100,7 @@ label start:
     show jake at char_left
     with dissolve
     jake "I've decided, something needs to be done!"
+    hide jake with dissolve
 
     show mike at char_right
     with dissolve
@@ -109,9 +110,11 @@ label start:
     show tom at char_left
     with dissolve
     vo "Tom whacks the steering wheel again, then sits forward with his head in his hands."
+    $ wheel_hits = 0
+    $ wheel_phrase = ""
+    call screen hit_the_wheel
     play sound audio.horn
-    $ camera_shake
-
+    $ camera_shake()
     tom "Oh god, why???"
 
     show jon at char_right
@@ -142,26 +145,64 @@ label start:
     the_narrator "Without this knowledge, the group decided that three would go and look for help whilst the fourth remained behind to keep an eye on the car."
     the_narrator "After a few rounds of cards and some golf, it was decided that Jake, Jon and Tom would go. Then Tom revealed that he was pregnant and couldn't possibly leave the car, so Mike had to go."
     the_narrator "And as the three walked through the very dark and horrible forest, they stumbled across a scary house!!!"
-    stop sound fadeout 0.5
+    stop music fadeout 0.5
 
     ######################################################
     ####Scene 2####################
     ######################################################
 
     scene cinema with slow_dissolve
+    play music audio.intermission loop
     show aud at char_left
     aud "Shelly!"
     show shelly at char_right
     shelly "What?!"
     aud "What ya doin' after the film?"
     shelly "Nout with you sunshine!"
+    stop music fadeout 0.5
 
     ######################################################
     ####Scene 3####################
     ######################################################
 
-    scene scary_door with slow_dissolve  
+    scene scary_door with slow_dissolve 
+    show jon at char_left 
+    with dissolve
+    jon "This doornob sure is dusty"
+    hide jon with dissolve
 
+    show jake at char_right
+    with dissolve
+    $ bell_hits = 0
+    call screen ring_the_bell()
+    $ bell_hits = 0
+    hide jake
+
+    vo "They turn to leave. As they do, the door opens and strange man steps out."
+
+    show butler at char_left
+    with dissolve
+
+    butler "Good evening."
+
+    show mike at char_right
+    with dissolve
+    mike "AHH! The ARK PRODUCTIONS guy!"
+
+    butler "Excuse me? You seem to be familiar with my twin brother Tom."
+    hide mike with dissolve
+    show jake at char_right
+    with dissolve
+
+    jake "So who are you then?"
+
+    butler "Tom"
+
+    hide jake with dissolve
+    show jon at char_right
+    with dissolve
+
+    jon "You're both called Tom?"
     
 
 

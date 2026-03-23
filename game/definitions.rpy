@@ -35,6 +35,7 @@ define audio.credit_theme = "audio/music/credit_theme.mp3"
 define audio.horn = "audio/sfx/horn.ogg"
 define audio.window ="audio/sfx/window.ogg"
 define audio.car = "audio/sfx/break.ogg"
+define audio.intermission ="audio/music/intermission.ogg"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -93,12 +94,12 @@ image cinema = "images/bg/cinema.png"
 image scary_door = "images/bg/scary_door.png"
 
 #####Characters#####
-image the_narrator = im.Scale("images/characters/narrator.png", 1000, 1400)
+image the_narrator ="images/characters/narrator.png"
 image silly1 ="images/characters/silly1.png"
 image tom = "images/characters/tom.png"
 image jon = "images/characters/jon.png"
 image jake = "images/characters/jake.png"
-image mike = "images/characters/jon.png"
+image mike = "images/characters/mike.png"
 image butler = "images/characters/butler.png"
 image count = "images/characters/count.png"
 image silly2 = "images/characters/silly2.png"
@@ -113,6 +114,23 @@ image steward = "images/characters/steward.png"
 
 ######Objects####
 image la_drover ="images/cg/la_drover.png"
+
+default wheel_hits = 0
+default wheel_phrase = ""
+
+init python:
+    wheel_phrases = [
+        "Come on...",
+        "Start, you useless thing!",
+        "WHY won't you GO?!",
+        "I hate this car. I hate this forest. I hate everything.",
+        "COME ON!",
+        "Right, that's it. That is IT.",
+        "...Please?",
+        "Oh for the love of—",
+        "WHYYY.",
+        "That's it. I'm done. I'm so done.",
+    ]
 
 ###############################################################################
 ## Define Opening Credits

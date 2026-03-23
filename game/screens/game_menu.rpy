@@ -40,6 +40,8 @@ screen game_menu(title):
             textbutton _("Main Menu") action MainMenu()
 
         textbutton _("About") action ShowMenu("about")
+        
+        textbutton _("Achievements") action ShowMenu("achievement_gallery")
 
         if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 

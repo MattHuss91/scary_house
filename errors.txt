@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 37: expected simple expression
-    stop music fadeout
-                      ^
+File "game/screens/mingames.rpy", line 33: The text statement is not a valid child of the imagebutton statement.
+    text "[wheel_phrase]":
+        ^
+
+File "game/screens/mingames.rpy", line 78: The textbutton statement is not a valid child of the imagebutton statement.
+    textbutton "...Nobody Home":
+              ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Tue Mar 17 19:42:32 2026
+Sun Mar 22 18:00:44 2026

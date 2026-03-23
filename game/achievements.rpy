@@ -17,7 +17,7 @@
 define myconfig.INGAME_POPUP_WITH_STEAM = True
 define myconfig.ACHIEVEMENT_HIDE_TIME = 1.0
 define myconfig.SHOW_ACHIEVEMENT_POPUPS = True
-define myconfig.ACHIEVEMENT_SOUND = None # "audio/sfx/achievement.ogg"
+define myconfig.ACHIEVEMENT_SOUND = "audio/sfx/bing.mp3"
 define myconfig.ACHIEVEMENT_CHANNEL = "audio"
 define myconfig.HIDDEN_ACHIEVEMENT_NAME = _("???{#hidden_achievement_name}")
 define myconfig.HIDDEN_ACHIEVEMENT_DESCRIPTION = _("???{#hidden_achievement_description}")
@@ -35,38 +35,13 @@ define achievement.steam_position = None
 ################################################################################
 ## DEFINING ACHIEVEMENTS
 ################################################################################
-## The locked_achievement image is defined in definitions.rpy.
-## Place your achievement icons in images/achievements/.
-##
-## HOW TO ADD AN ACHIEVEMENT:
-## 1. Add an icon image to images/achievements/
-## 2. Define the achievement below using this template:
-##
-## define my_achievement = Achievement(
-##     name=_("Achievement Name"),
-##     id="my_achievement",
-##     description=_("Description of what the player did."),
-##     unlocked_image="images/achievements/my_icon.png",
-##     ## Optional parameters:
-##     # locked_image="locked_achievement",  ## Custom locked image
-##     # hide_name=True,                     ## Hide name until unlocked
-##     # hide_description=True,              ## Hide description until unlocked
-##     # stat_max=10,                        ## For progress-based achievements
-##     # show_progress_bar=True,             ## Show progress bar in gallery
-## )
-##
-## 3. Grant it in script.rpy with: $ my_achievement.grant()
-## 4. For progress: $ my_achievement.add_progress(1)
-## 5. For set-based progress: $ my_achievement.add_set_progress("unique_value")
 
-## --- YOUR ACHIEVEMENTS GO HERE ---
-## Uncomment and modify:
-# define first_achievement = Achievement(
-#     name=_("Getting Started"),
-#     id="first_achievement",
-#     description=_("You started the game!"),
-#     unlocked_image="images/achievements/started.png",
-# )
+define horn_happy = Achievement(
+    name=_("The Best Final Fantasy...Fight Me"),
+    id="horn_happy",
+    description=_("Hit the wheel more than six times. Tom would be proud."),
+    unlocked_image="images/achievements/horn_happy.png",
+)
 
 ################################################################################
 ## SCREENS
