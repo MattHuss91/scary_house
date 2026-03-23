@@ -95,7 +95,7 @@ image bg forest scroll_stop:
 image cinema = "images/bg/cinema.png"
 image scary_door = "images/bg/scary_door.png"
 image lobby = "images/bg/lobby.png"
-image palor = "images/bg.palor.png"
+image palor = "images/bg/palor.png"
 
 #####Characters#####
 image the_narrator ="images/characters/narrator.png"
@@ -290,3 +290,13 @@ transform char_fade_in:
 transform char_fade_out:
     alpha 1.0
     linear 0.3 alpha 0.0
+    
+transform disco_lights:
+    matrixcolor TintMatrix("#ff6666")
+    linear 0.3 matrixcolor TintMatrix("#66ff66")
+    linear 0.3 matrixcolor TintMatrix("#6666ff")
+    linear 0.3 matrixcolor TintMatrix("#ffff66")
+    linear 0.3 matrixcolor TintMatrix("#ff66ff")
+    linear 0.3 matrixcolor TintMatrix("#66ffff")
+    linear 0.3 matrixcolor TintMatrix("#ff6666")
+    repeat    

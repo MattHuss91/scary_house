@@ -243,27 +243,41 @@ label start:
     show silly3 at char_centre
     with dissolve
     pause
+ 
+## --- Rhythm minigame ---
+stop music fadeout 0.3
+$ renpy.stop_predict()
+$ renpy.block_rollback()
+$ renpy.restart_interaction()
+stop movie
 
-    ## --- Rhythm minigame ---
-    stop music fadeout 0.3
-    show layer master at normal
+show layer master at disco_lights
 
-    label rhythm_retry:
+# Show intro screen first
+$ renpy.call_screen("rhythm_intro_screen")
+
+# IMPORTANT: reset interaction so countdown can animate
+$ renpy.restart_interaction()
+
+# Countdown before the game begins
+$ rhythm_countdown()
+
+label rhythm_retry:
 
     $ rhythm_result = run_rhythm_game()
 
     ## --- Retry screen if score is very low ---
     if rhythm_result["percent"] < 30:
         menu:
-            "You scored [rhythm_result[\"percent\"]]%%. That was... something. Try again?"
+            "You scored [rhythm_result['percent']]%. Try again?"
             "Try again!":
                 jump rhythm_retry
             "Move on...":
                 pass
 
-    ## --- Achievement if perfect ---
-    if rhythm_result["perfect"]:
-        $ disco_fever.grant()
+## --- Achievement if perfect ---
+if rhythm_result["perfect"]:
+    $ disco_fever.grant()
 
     ## --- Resume scene ---
     play music audio.abba fadein 0.5
@@ -276,14 +290,6 @@ label start:
 
     play sound audio.record_scratch
     stop music fadeout 0.5
-    show layer master at normal
     silly1 "Oh fine! We'll go then!"
     hide silly1 with dissolve
     hide silly3 with dissolve
-
-
-
-
-
-
-

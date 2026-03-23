@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/rhythm_game_effects.rpy", line 414: The if statement is not a valid child of the text statement.
-    color "#ffffff" if _rhythm_state.feedback[lane_i] == "HIT!" else "#ff4444"
-                      ^
-
-File "game/rhythm_game_script_and_achievement.rpy", line 24: Line is indented, but the preceding define statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    scene palor with slow_dissolve
-    ^
+File "game/script.rpy", line 272: invalid syntax
+    menu:
+             ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Mon Mar 23 16:58:07 2026
+Mon Mar 23 19:28:11 2026

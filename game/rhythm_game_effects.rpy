@@ -1,29 +1,6 @@
 ################################################################################
 ## RHYTHM MINIGAME - ABBA Dance Scene
 ################################################################################
-## Guitar Hero style falling notes, 4 lanes.
-## Desktop: A S K L keys. Mobile: tap zones at bottom of screen.
-## Called from script.rpy via: $ rhythm_result = run_rhythm_game()
-##
-## Returns a dict: { "score": int, "total": int, "perfect": bool }
-################################################################################
-
-## --- Achievement (also add this to achievements.rpy) ---
-## define disco_fever = Achievement(
-##     name=_("Disco Fever"),
-##     id="disco_fever",
-##     description=_("Hit every note in the ABBA dance scene."),
-##     unlocked_image="images/achievements/disco_fever.png",
-## )
-
-################################################################################
-## NOTE CHART
-## Format: (time_in_seconds, lane_index)
-## Lanes: 0=left, 1=centre-left, 2=centre-right, 3=right
-## This is a hand-tuned chart for a 2:46 track.
-## Adjust timings to match your actual audio file.
-################################################################################
-
 init python:
 
     ABBA_NOTE_CHART = [
@@ -386,7 +363,6 @@ init python:
 
     ## -------------------------------------------------------------------
     ## RHYTHM GAME STATE
-    ## Managed as a Python object so the screen can read/write it cleanly.
     ## -------------------------------------------------------------------
 
     class RhythmGameState(object):
@@ -402,8 +378,8 @@ init python:
         def __init__(self, chart):
             import time
             self.chart        = sorted(chart, key=lambda n: n[0])
-            self.notes        = []   ## Active note dicts on screen
-            self.next_index   = 0    ## Index into chart for spawning
+            self.notes        = []   
+            self.next_index   = 0    
             self.score        = 0
             self.total        = len(chart)
             self.hits         = 0
@@ -512,18 +488,71 @@ init python:
         }
 
 
+# ---------------------------------------------------------
+# COUNTDOWN FUNCTION + SCREEN 
+# ---------------------------------------------------------
+init python:
+
+    def rhythm_countdown():
+        for t in ["3", "2", "1", "GO!"]:
+            store.countdown_text = t
+            renpy.show_screen("rhythm_countdown")
+            renpy.pause(0.8)
+        renpy.hide_screen("rhythm_countdown")
+
+screen rhythm_countdown():
+    zorder 300
+
+    add Solid("#00000055")
+
+    text "[countdown_text]":
+        xalign 0.5
+        yalign 0.5
+        size 120
+        color "#ffcc00"
+
+
 ################################################################################
 ## RHYTHM GAME SCREEN
 ################################################################################
+screen rhythm_intro_screen():
+
+    modal True
+    zorder 200
+
+    frame:
+        xalign 0.5
+        yalign 0.5
+        padding (40, 40)
+        background "#000000cc"
+
+        vbox:
+            spacing 30
+            xalign 0.5
+
+            text "RHYTHM MINI-GAME" size 60 color "#ffcc00" xalign 0.5
+
+            text "Hit the notes in time with the music!" size 40 xalign 0.5
+            text "Use keys:  A   S   K   L" size 40 xalign 0.5
+            text "Press the matching key when the note reaches the hit zone." size 32 xalign 0.5
+            text "Try to get as many hits as possible!" size 32 xalign 0.5
+
+            null height 20
+
+            textbutton "Start!" action Return(True):
+                xalign 0.5
+                padding (20, 10)
+                background "#ffcc00"
+                text_color "#000"
+                text_size 40
+
+screen rhythm_game_start():
+    timer 0.01 action Return()
 
 screen rhythm_game_screen():
-
-    ## Block all other input
+    on "show" action Play("music", audio.abba)
     modal True
     zorder 150
-
-    ## Dark background
-    add "#000000cc"
 
     ## --- Lane backgrounds ---
     hbox:
@@ -535,10 +564,13 @@ screen rhythm_game_screen():
             frame:
                 xfill True
                 yfill True
-                background "#111111"
 
     ## --- Lane dividers and hit zone bar ---
-    add Solid("#333333") xpos 0 ypos config.screen_height - 180 xsize config.screen_width ysize 4
+    add Solid("#333333"):
+        xpos 0
+        ypos config.screen_height - 180
+        xsize config.screen_width
+        ysize 4
 
     ## --- Hit zone targets ---
     hbox:
@@ -586,11 +618,12 @@ screen rhythm_game_screen():
         if _rhythm_state.feedback[lane_i] != "" and (_rhythm_state.elapsed - _rhythm_state.feedback_t[lane_i]) < 0.4:
             $ lane_w = config.screen_width // 4
             $ fb_x = lane_i * lane_w + lane_w // 2 - 60
+            $ fb_color = "#ffffff" if _rhythm_state.feedback[lane_i] == "HIT!" else "#ff4444"
             text _rhythm_state.feedback[lane_i]:
                 xpos fb_x
                 ypos config.screen_height - 280
                 size 50
-                color "#ffffff" if _rhythm_state.feedback[lane_i] == "HIT!" else "#ff4444"
+                color fb_color
                 bold True
 
     ## --- Score display ---
@@ -605,7 +638,7 @@ screen rhythm_game_screen():
                 color "#ffffff" size 36
             text "Hits: [_rhythm_state.hits]/[_rhythm_state.total]":
                 color "#ffffff" size 36
-            text "[_rhythm_state.percent]%%":
+            text "[_rhythm_state.percent]%":
                 color "#ffcc00" size 36
 
     ## --- Key input - desktop ---

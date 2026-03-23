@@ -55,7 +55,7 @@ screen help():
 
     default device = "keyboard"
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
+    add HBox(Solid("#292835", xsize=350), Solid("#21212db2"))
 
     use game_menu(_("Help"))
 

@@ -20,8 +20,8 @@ screen hit_the_wheel():
 
         imagebutton:
             xalign 0.5
-            idle At("images/ui/wheel.png", Transform(zoom=0.5))
-            hover At("images/ui/wheel.png", Transform(zoom=0.5))
+            idle Transform("images/ui/wheel.png", zoom=0.5)
+            hover Transform("images/ui/wheel.png", zoom=0.5)
             action [
                 SetVariable("wheel_hits", wheel_hits + 1),
                 SetVariable("wheel_phrase",

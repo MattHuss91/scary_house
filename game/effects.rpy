@@ -136,17 +136,18 @@ init python:
     import random
 
     def camera_shake(duration=0.4, intensity=10):
-        """Shake the screen by briefly offsetting the master layer."""
-        import time
         steps = 8
         step_time = duration / steps
+
         for i in range(steps):
             factor = 1.0 - (float(i) / steps)
             xoff = random.uniform(-intensity, intensity) * factor
             yoff = random.uniform(-intensity, intensity) * factor
-            renpy.show_layer_at([Transform(xoffset=xoff, yoffset=yoff)], layer="master")
+
+            renpy.with_statement(Transform(xoffset=xoff, yoffset=yoff))
             renpy.pause(step_time, hard=True)
-        renpy.show_layer_at([Transform(xoffset=0, yoffset=0)], layer="master")
+
+        renpy.with_statement(Transform(xoffset=0, yoffset=0))
 
 
 ################################################################################
@@ -211,3 +212,13 @@ transform tint_sepia:
 
 transform desaturate:
     matrixcolor SaturationMatrix(0.0)
+
+transform disco_lights:
+    matrixcolor TintMatrix("#ff6666")
+    linear 0.3 matrixcolor TintMatrix("#66ff66")
+    linear 0.3 matrixcolor TintMatrix("#6666ff")
+    linear 0.3 matrixcolor TintMatrix("#ffff66")
+    linear 0.3 matrixcolor TintMatrix("#ff66ff")
+    linear 0.3 matrixcolor TintMatrix("#66ffff")
+    linear 0.3 matrixcolor TintMatrix("#ff6666")
+    repeat    

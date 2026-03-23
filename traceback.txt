@@ -1,46 +1,33 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-NameError: name 'Tom' is not defined. Did you mean: 'tom'?
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 62, in script
-    Tom "???????"
-Exception: Sayer 'Tom' is not defined.
+  File "game/script.rpy", line 293, in script
+    show layer master at normal
+  File "game/script.rpy", line 293, in <module>
+    show layer master at normal
+                         ^^^^^^
+NameError: name 'normal' is not defined. Did you mean: 'format'?
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "renpy/ast.py", line 625, in eval_who
-    return renpy.python.py_eval(who)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "game/script.rpy", line 293, in script
+    show layer master at normal
+  File "renpy/ast.py", line 1392, in execute
+    at_list = [renpy.python.py_eval(i) for i in self.at_list]
+               ~~~~~~~~~~~~~~~~~~~~^^^                       
   File "renpy/python.py", line 1305, in py_eval
     return py_eval_bytecode(code, globals, locals)
            ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
   File "renpy/python.py", line 1298, in py_eval_bytecode
     return eval(bytecode, globals, locals)
            ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<none>", line 1, in <module>
-NameError: name 'Tom' is not defined. Did you mean: 'tom'?
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "game/script.rpy", line 62, in script
-    Tom "???????"
-  File "renpy/ast.py", line 2925, in execute
-    Say.execute(self)
-    ~~~~~~~~~~~^^^^^^
-  File "renpy/ast.py", line 956, in execute
-    who = eval_who(self.who, self.who_fast)
-          ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "renpy/ast.py", line 627, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer 'Tom' is not defined.
+  File "game/script.rpy", line 293, in <module>
+    show layer master at normal
+                         ^^^^^^
+NameError: name 'normal' is not defined. Did you mean: 'format'?
 
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.2.26010301
 Scary House 0.0.1
-Thu Mar 19 12:18:54 2026
+Mon Mar 23 20:26:03 2026
