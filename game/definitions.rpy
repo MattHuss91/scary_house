@@ -38,6 +38,8 @@ define audio.car = "audio/sfx/break.ogg"
 define audio.intermission ="audio/music/intermission.ogg"
 define audio.abba = "audio/music/abba.ogg"
 define audio.record_scratch = "audio/sfx/record_scratch.mp3"
+define audio.phone = "audio/sfx/phone.wav"
+define audio.carsh = "audio/sfx/crash.mp3"
 
 ################################################################################
 ## DEFAULT VARIABLES
@@ -118,6 +120,7 @@ image steward = "images/characters/steward.png"
 
 ######Objects####
 image la_drover ="images/cg/la_drover.png"
+image pliers ="images/cg/pliers.png"
 
 default wheel_hits = 0
 default wheel_phrase = ""

@@ -279,17 +279,93 @@ label rhythm_retry:
 if rhythm_result["perfect"]:
     $ disco_fever.grant()
 
-    ## --- Resume scene ---
+## --- Resume scene ---
+label after_rhythm:
     play music audio.abba fadein 0.5
     show layer master at disco_lights
 
-    hide silly2 with dissolve
+    hide silly1 with dissolve
     show jake at char_right
     with dissolve
-    jake "I hate ABBA!"
-
     play sound audio.record_scratch
     stop music fadeout 0.5
+    show layer master
+    jake "I hate ABBA!"
+
     silly1 "Oh fine! We'll go then!"
-    hide silly1 with dissolve
     hide silly3 with dissolve
+    hide silly2 with dissolve
+
+    show count at char_left
+    with dissolve
+    count "Well, you seem to have chased away all of my guests anyway!"
+    hide jake with dissolve
+    show butler at char_right
+    with dissolve
+    butler"Ah! Allow me to introduce the master of the house..."
+    count "Count Vincent de Laza de Turcheon de Grumpit de Passamoor de Vile de Smith. I hail from a long and noble family descending from the very early days of Stoke-on-Trent."
+    hide butler with dissolve
+    show mike at char_right
+    with dissolve
+    mike "Sorry!?"
+    count "Stoke on Trent"
+    mike "No I heard you the first time, I was just saying..."
+    hide mike with dissolve
+    show jake at char_right
+    with dissolve
+    jake "You'll have to excuse him! He means no harm he's just a complete goon!"
+    hide jake with dissolve
+    show jon at char_right
+    with dissolve
+    jon "It always amazes me how people can be complete goons without any formal education!"
+    count "Can I ask why you three have just thought to wander into my private residence?"
+    hide jon with dissolve
+    show jake at char_right
+    with dissolve
+    jake "Oh yes, sorry. Our car broke down, we were wondering if we could use your phone."
+    count "I'm sorry, all our phones are currently out of service."
+    play sound audio.phone
+    hide jake
+    show butler at char_right
+    with dissolve
+    pause
+    butler "Hello Audrey! Yes I'll pick you up later, I thought we'd have chicken sticks."
+    hide butler
+    show jake at char_right
+    with dissolve
+    jake "What was that?"
+    count "Internal line"
+    hide jake with dissolve
+    show butler at char_right
+    with dissolve
+    show pliers at char_centre
+    with dissolve
+    count "do what needs to be done"
+    hide butler with dissolve
+    hide pliers with dissolve
+
+    show mike at char_right
+    with dissolve
+    mike "So when do we meet the missus?"
+    hide count 
+    show jake at char_left 
+    with dissolve
+    jake "Never!"
+    hide mike with dissolve
+    show count at char_right 
+    with dissolve
+    jake "I'm sorry to have bothered you! We'll be leaving!"
+    count "I'm afriad not, you see the door is broken"
+    jake "but...we just used it"
+    play sound audio.crash
+    pause
+    count "very recent incident"
+    count "Well, it looks like you're here for the night. Why don't you come through to the dining room... for a bite!!!"
+
+    #####scene 4#####
+    
+
+    
+
+
+

@@ -12,7 +12,7 @@ define config.window_icon = None
 
 ## The version of the game.
 
-define config.version = "0.0.1"
+define config.version = "0.1.0"
 
 
 ## Text#########################################################################

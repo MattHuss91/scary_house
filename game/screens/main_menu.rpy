@@ -27,6 +27,8 @@ screen main_menu():
 
         textbutton _("Load") action ShowMenu("load")
 
+        textbutton _("Achievements") action ShowMenu("achievement_gallery")
+
         textbutton _("Preferences") action ShowMenu("preferences")
 
         textbutton _("About") action ShowMenu("about")
