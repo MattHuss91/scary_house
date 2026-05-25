@@ -331,14 +331,14 @@ label scene_five_bedroom:
     show jake at char_right
     with dissolve
     butler "Here we are, good sirs. You'll be happy to know that this room contains the best beds in the house."
+    jake "Where are they?"
     hide jake with dissolve
-    show jon at char_centre
     show mike at char_right
     with dissolve
-    jake "Where are they?"
     butler "Oh, well, there aren't actually beds of course! The master doesn't use beds!"
     mike "Oh, this is another quirk isn't it! What does he sleep in?"
     butler "Coffin!"
+    hide mike with dissolve
     show jake at char_right
     with dissolve
     jake "Excuse me?"
@@ -346,12 +346,12 @@ label scene_five_bedroom:
     butler "Because I haven't had my pills! Excuse me, I must go."
     hide butler with dissolve
 
+    show mike at char_left
+    with dissolve
     mike "Well he certainly is enigmatic, this Vincent! A man after my own heart!"
     jake "Oh please, the only thing enigmatic about you is the smell after a curry!"
+    hide jake with dissolve
 
-    hide jake
-    hide jon
-    with dissolve
     mike "Coo! Wonder what's in here?"
     hide mike with dissolve
 
@@ -359,7 +359,7 @@ label scene_five_bedroom:
     ## PLACEHOLDER AUDIO: audio.scream — replace horn with real scream sfx
     play sound audio.horn
 
-    show mike_no_trousers at char_centre
+    show mike_no_trousers at char_right
     with dissolve
     mike "*screams*"
 
@@ -368,18 +368,22 @@ label scene_five_bedroom:
     jon "Was that the lion or the witch?"
     mike "There's a bat in there!"
 
-    ## The bat emerges from the cupboard.
+    ## Hide Mike before showing the bat — three on screen otherwise.
+    hide mike_no_trousers with dissolve
     show bat at char_right
     with dissolve
     bat "Terribly sorry old boy, you rather startled me!"
     jon "What happened to your trousers, Mike?"
     bat "Oh they're here! Sorry, I appear to have made a bit of a hole in them!"
     hide bat with dissolve
+    hide jon with dissolve
 
     ## Achievement: scared by a bat and lost your trousers. Classic.
     $ trousergeist.grant()
 
-    show jake at char_right
+    ## Fan/rhyming scene — Jake left, Mike (no trousers) right.
+    show jake at char_left
+    show mike_no_trousers at char_right
     with dissolve
     jake "Oh for goodness sake can we just GO TO SLEEP?"
     mike "Bit warm isn't it?"
@@ -400,30 +404,32 @@ label scene_five_bedroom:
     jake "You said you didn't have a phone!"
     mike "Well, not the sort you make calls on!"
 
+    ## Hide both before narrator — three on screen otherwise.
+    hide jake with dissolve
+    hide mike_no_trousers with dissolve
     show the_narrator at char_centre
     with dissolve
     the_narrator "I told you he had a phone!"
     the_narrator "And that's why he didn't tell anyone!"
     hide the_narrator with dissolve
 
-    ## Jake grabs a cricket bat and chases Mike out.
+    ## Jake chases Mike out — Jake alone, Mike already off screen.
     ## PLACEHOLDER AUDIO: audio.thwack — replace with real thwack sfx
     play sound audio.horn
+    show jake at char_left
+    with dissolve
     jake "*grabs a cricket bat that has appeared from nowhere*"
     jake "GET OUT!"
-    hide mike_no_trousers with dissolve
     jake "And stay out!"
 
-    ## The bat has an opinion.
+    ## The bat has an opinion.  Jake is at left, bat at right.
     show bat at char_right
     with dissolve
     bat "I say, it's rather stuffy in here!"
     hide bat with dissolve
+    hide jake with dissolve
 
     ## Jake and Jon have a vague conversation about something unspecified.
-    hide jake
-    hide jon
-    with dissolve
     show jake at char_left
     show jon at char_right
     with dissolve
@@ -437,9 +443,8 @@ label scene_five_bedroom:
     pause 1.5
     jon "..."
 
-    hide jake
-    hide jon
-    with dissolve
+    hide jake with dissolve
+    hide jon with dissolve
 
     jump scene_six_arrows
 
@@ -579,13 +584,14 @@ label scene_eight_chase:
     ## LOCATION: lobby — the lads regroup.
     scene lobby with slow_dissolve
     show jake at char_left
-    show jon at char_right
     with dissolve
     jake "Mike?"
-    jon "We got your trousers!"
 
-    show mike_no_trousers at char_centre
+    hide jake with dissolve
+    show jon at char_left
+    show mike_no_trousers at char_right
     with dissolve
+    jon "We got your trousers!"
     jon "What you doing down there, lad?"
     jake "Get up, you silly twit!"
 
@@ -597,13 +603,14 @@ label scene_eight_chase:
     ## The Count makes a dramatic entrance.
     ## PLACEHOLDER AUDIO: audio.thunder and audio.piano_sting for the reveal
     play sound audio.horn
-    hide mike_no_trousers
-    hide jake
     hide jon
+    hide mike_no_trousers
     with dissolve
     show count_bloody at char_centre
     with vpunch
 
+    ## Hide Count before showing Jake and Jon — three on screen otherwise.
+    hide count_bloody with dissolve
     show jake at char_left
     show jon at char_right
     with dissolve
@@ -778,8 +785,8 @@ label scene_twelve_bible:
     call holy_word_game
 
     ## The Count is now cured (count_on_fire → count_happy handled in bible_correct).
+    ## Jake alone first — count_happy comes in right; three on screen otherwise.
     show jake at char_left
-    show jon at char_centre
     with dissolve
     jake "He gone then?"
 
@@ -792,6 +799,8 @@ label scene_twelve_bible:
     count "I've got a wonderful feeling, everything's going my..."
 
     ## The Butler puts a stop to it.
+    ## Hide Jake first — butler would be at char_left on top of jake otherwise.
+    hide jake with dissolve
     show butler at char_left
     with dissolve
     ## PLACEHOLDER AUDIO: audio.thwack
@@ -800,8 +809,12 @@ label scene_twelve_bible:
     hide count_happy with dissolve
     hide butler with dissolve
 
+    show jon at char_left
+    with dissolve
     jon "Well, I think everything turned out alright!"
     jon "I suppose you'll be off to... y'know... then... with that girl you mentioned earlier?"
+    show jake at char_right
+    with dissolve
     jake "Urr... I don't think she plays Pokemon!"
 
     ## The bomb subplot pays off.  Jon foreshadowed this in the cupboard.
@@ -815,6 +828,9 @@ label scene_twelve_bible:
     jon "Oh that'll be the bomb I mentioned!"
     jake "Oh right!"
 
+    ## Clear both so the bomb can be shown alone — jake speaks off-screen.
+    hide jake with dissolve
+    hide jon with dissolve
     show bomb at char_centre
     with dissolve
     jake "Flip!"
@@ -838,12 +854,19 @@ label scene_twelve_bible:
 label scene_thirteen_wreckage:
     ## LOCATION: the bedroom, now comprehensively wrecked.
     scene bedroom_wreckage with slow_dissolve
+
+    ## Show survivors in pairs — three at once would break the two-char rule.
     show jake at char_left
-    show jon at char_centre
     show mike_no_trousers at char_right
     with dissolve
-
     jake "Gosh! That was lucky!"
+
+    hide mike_no_trousers with dissolve
+    show jon at char_right
+    with dissolve
+    jon "Rather!"
+    hide jake with dissolve
+    hide jon with dissolve
 
     show the_narrator at char_centre
     with dissolve
@@ -851,7 +874,10 @@ label scene_thirteen_wreckage:
     the_narrator "And now, with a new mindset and a renewed appreciation for life and all they have been given in it, they looked at the rising sun and spoke the first words of this new dawn..."
     hide the_narrator with dissolve
 
+    show jake at char_left
+    with dissolve
     jake "Let's go the pub!"
+    hide jake with dissolve
 
     ## Achievement: you made it to the end.
     $ survivors.grant()
