@@ -41,6 +41,20 @@ define audio.record_scratch = "audio/sfx/record_scratch.mp3"
 define audio.phone = "audio/sfx/phone.wav"
 define audio.carsh = "audio/sfx/crash.mp3"
 
+## ---------------------------------------------------------------------------
+## PLACEHOLDER AUDIO — files don't exist yet. Add before release.
+## Using audio.xxx pattern matches the existing style in this file.
+## Search "PLACEHOLDER AUDIO" to find all usages in the scripts.
+## ---------------------------------------------------------------------------
+define audio.scream      = "audio/sfx/scream.ogg"       ## PLACEHOLDER AUDIO
+define audio.thwack      = "audio/sfx/thwack.ogg"       ## PLACEHOLDER AUDIO
+define audio.fart        = "audio/sfx/fart.ogg"         ## PLACEHOLDER AUDIO
+define audio.fire_whoosh = "audio/sfx/fire_whoosh.ogg"  ## PLACEHOLDER AUDIO
+define audio.werewolf_growl = "audio/sfx/werewolf.ogg"  ## PLACEHOLDER AUDIO
+define audio.bomb_tick   = "audio/sfx/bomb_tick.ogg"    ## PLACEHOLDER AUDIO
+define audio.thunder     = "audio/sfx/thunder.ogg"      ## PLACEHOLDER AUDIO
+define audio.piano_sting = "audio/sfx/piano_sting.ogg"  ## PLACEHOLDER AUDIO
+
 ################################################################################
 ## DEFAULT VARIABLES
 ################################################################################
@@ -100,26 +114,36 @@ image lobby = "images/bg/lobby.png"
 image palor = "images/bg/palor.png"
 image dining_room = "images/bg/dining_room.png"
 
-#### New Backgrounds ####
-image bedroom = "images/bg/bedroom.png"
-image bedroom_wreckage = "images/bg/bedroom_wreckage.png"
-image forest_bright = "images/bg/forest_bright.png"
+## ---------------------------------------------------------------------------
+## PLACEHOLDER IMAGES — replace file paths with real art before release.
+## Each Solid() is a coloured rectangle so the game runs without crashing.
+## Search "PLACEHOLDER" across all .rpy files to find everything needing art.
+## ---------------------------------------------------------------------------
 
-#### New Character Sprites ####
-image mike_no_trousers = "images/characters/mike_no_trousers.png"
-image count_bloody = "images/characters/count_bloody.png"
-image count_on_fire = "images/characters/count_on_fire.png"
-image count_happy = "images/characters/count_happy.png"
-image werewolf = "images/characters/werewolf.png"
+#### New Backgrounds (PLACEHOLDER) ####
+## REPLACE: swap Solid() for the real file path once art exists.
+image bedroom = Solid("#1a0a2e")           ## dark purple — spooky bedroom
+image bedroom_wreckage = Solid("#2e0a0a")  ## dark red — post-explosion wreckage
+image forest_bright = Solid("#2d4a1e")     ## daylight green — end-credits forest
 
-#### New Objects / CG ####
-image arrow = "images/cg/arrow.png"
-image stake = "images/cg/stake.png"
-image garlic = "images/cg/garlic.png"
-image holy_water = "images/cg/holy_water.png"
-image bible = "images/cg/bible.png"
-image bomb = "images/cg/bomb.png"
-image plastic_bat_toy = "images/cg/plastic_bat_toy.png"
+#### New Character Sprites (PLACEHOLDER) ####
+## REPLACE: swap Text() for the real .png path once art exists.
+image mike_no_trousers = Text("[ Mike (no trousers) ]", size=36, color="#eaff00", outlines=[(2,"#000000")])
+image count_bloody = Text("[ Count Vincent (bloody) ]", size=36, color="#ff0000", outlines=[(2,"#000000")])
+image count_on_fire = Text("[ Count Vincent (on fire) ]", size=36, color="#ff6600", outlines=[(2,"#000000")])
+image count_happy = Text("[ Count Vincent (happy) ]", size=36, color="#ffdd00", outlines=[(2,"#000000")])
+image werewolf = Text("[ A Werewolf ]", size=36, color="#aaaaaa", outlines=[(2,"#000000")])
+
+#### New Objects / CG (PLACEHOLDER) ####
+## REPLACE: swap Text() for the real .png path once art exists.
+## These appear at char_centre via transforms, so Text() will be visible.
+image arrow = Text("→", size=80, color="#ffffff", outlines=[(2,"#000000")])
+image stake = Text("[ Stake ]", size=40, color="#c8a060", outlines=[(2,"#000000")])
+image garlic = Text("[ Garlic ]", size=40, color="#e8e8cc", outlines=[(2,"#000000")])
+image holy_water = Text("[ Holy Water ]", size=40, color="#aaddff", outlines=[(2,"#000000")])
+image bible = Text("[ Bible ]", size=40, color="#ffffcc", outlines=[(2,"#000000")])
+image bomb = Text("[ BOMB ]", size=40, color="#ff4444", outlines=[(2,"#000000")])
+image plastic_bat_toy = Text("[ Plastic Bat Toy ]", size=40, color="#884488", outlines=[(2,"#000000")])
 
 #####Characters#####
 image the_narrator ="images/characters/narrator.png"
