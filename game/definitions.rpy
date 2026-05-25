@@ -98,6 +98,28 @@ image cinema = "images/bg/cinema.png"
 image scary_door = "images/bg/scary_door.png"
 image lobby = "images/bg/lobby.png"
 image palor = "images/bg/palor.png"
+image dining_room = "images/bg/dining_room.png"
+
+#### New Backgrounds ####
+image bedroom = "images/bg/bedroom.png"
+image bedroom_wreckage = "images/bg/bedroom_wreckage.png"
+image forest_bright = "images/bg/forest_bright.png"
+
+#### New Character Sprites ####
+image mike_no_trousers = "images/characters/mike_no_trousers.png"
+image count_bloody = "images/characters/count_bloody.png"
+image count_on_fire = "images/characters/count_on_fire.png"
+image count_happy = "images/characters/count_happy.png"
+image werewolf = "images/characters/werewolf.png"
+
+#### New Objects / CG ####
+image arrow = "images/cg/arrow.png"
+image stake = "images/cg/stake.png"
+image garlic = "images/cg/garlic.png"
+image holy_water = "images/cg/holy_water.png"
+image bible = "images/cg/bible.png"
+image bomb = "images/cg/bomb.png"
+image plastic_bat_toy = "images/cg/plastic_bat_toy.png"
 
 #####Characters#####
 image the_narrator ="images/characters/narrator.png"

@@ -132,23 +132,27 @@ transform ctc:
 ################################################################################
 ## Use with: $ camera_shake()
 
+transform _shake_transform(intensity=10, duration=0.4):
+    pause 0.0
+    block:
+        choice:
+            xoffset (intensity)  yoffset (-intensity)
+        choice:
+            xoffset (-intensity) yoffset (intensity)
+        choice:
+            xoffset (intensity)  yoffset (intensity)
+        choice:
+            xoffset (-intensity) yoffset (-intensity)
+        linear 0.04 xoffset 0 yoffset 0
+        repeat
+    time duration
+    linear 0.05 xoffset 0 yoffset 0
+
 init python:
-    import random
-
     def camera_shake(duration=0.4, intensity=10):
-        steps = 8
-        step_time = duration / steps
-
-        for i in range(steps):
-            factor = 1.0 - (float(i) / steps)
-            xoff = random.uniform(-intensity, intensity) * factor
-            yoff = random.uniform(-intensity, intensity) * factor
-
-            renpy.with_statement(Transform(xoffset=xoff, yoffset=yoff))
-            renpy.pause(step_time, hard=True)
-
-        renpy.with_statement(Transform(xoffset=0, yoffset=0))
-
+        renpy.show_layer_at([_shake_transform(intensity, duration)], layer="master")
+        renpy.pause(duration, hard=True)
+        renpy.show_layer_at([], layer="master")
 
 ################################################################################
 ## DIALOGUE BLEEPS (dmochas dialogue bleeps pack)
