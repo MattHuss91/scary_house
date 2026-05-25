@@ -128,22 +128,23 @@ image forest_bright = Solid("#2d4a1e")     ## daylight green — end-credits for
 
 #### New Character Sprites (PLACEHOLDER) ####
 ## REPLACE: swap Text() for the real .png path once art exists.
-image mike_no_trousers = Text("[ Mike (no trousers) ]", size=36, color="#eaff00", outlines=[(2,"#000000")])
-image count_bloody = Text("[ Count Vincent (bloody) ]", size=36, color="#ff0000", outlines=[(2,"#000000")])
-image count_on_fire = Text("[ Count Vincent (on fire) ]", size=36, color="#ff6600", outlines=[(2,"#000000")])
-image count_happy = Text("[ Count Vincent (happy) ]", size=36, color="#ffdd00", outlines=[(2,"#000000")])
-image werewolf = Text("[ A Werewolf ]", size=36, color="#aaaaaa", outlines=[(2,"#000000")])
+## Note: [[ and ]] are Ren'Py's escape for literal square brackets in Text().
+image mike_no_trousers = Text("[[ Mike (no trousers) ]]", size=36, color="#eaff00", outlines=[(2,"#000000")])
+image count_bloody     = Text("[[ Count Vincent (bloody) ]]", size=36, color="#ff0000", outlines=[(2,"#000000")])
+image count_on_fire    = Text("[[ Count Vincent (on fire) ]]", size=36, color="#ff6600", outlines=[(2,"#000000")])
+image count_happy      = Text("[[ Count Vincent (happy) ]]", size=36, color="#ffdd00", outlines=[(2,"#000000")])
+image werewolf         = Text("[[ A Werewolf ]]", size=36, color="#aaaaaa", outlines=[(2,"#000000")])
 
 #### New Objects / CG (PLACEHOLDER) ####
 ## REPLACE: swap Text() for the real .png path once art exists.
 ## These appear at char_centre via transforms, so Text() will be visible.
 image arrow = Text("→", size=80, color="#ffffff", outlines=[(2,"#000000")])
-image stake = Text("[ Stake ]", size=40, color="#c8a060", outlines=[(2,"#000000")])
-image garlic = Text("[ Garlic ]", size=40, color="#e8e8cc", outlines=[(2,"#000000")])
-image holy_water = Text("[ Holy Water ]", size=40, color="#aaddff", outlines=[(2,"#000000")])
-image bible = Text("[ Bible ]", size=40, color="#ffffcc", outlines=[(2,"#000000")])
-image bomb = Text("[ BOMB ]", size=40, color="#ff4444", outlines=[(2,"#000000")])
-image plastic_bat_toy = Text("[ Plastic Bat Toy ]", size=40, color="#884488", outlines=[(2,"#000000")])
+image stake         = Text("[[ Stake ]]",         size=40, color="#c8a060", outlines=[(2,"#000000")])
+image garlic        = Text("[[ Garlic ]]",        size=40, color="#e8e8cc", outlines=[(2,"#000000")])
+image holy_water    = Text("[[ Holy Water ]]",    size=40, color="#aaddff", outlines=[(2,"#000000")])
+image bible         = Text("[[ Bible ]]",         size=40, color="#ffffcc", outlines=[(2,"#000000")])
+image bomb          = Text("[[ BOMB ]]",          size=40, color="#ff4444", outlines=[(2,"#000000")])
+image plastic_bat_toy = Text("[[ Plastic Bat Toy ]]", size=40, color="#884488", outlines=[(2,"#000000")])
 
 #####Characters#####
 image the_narrator ="images/characters/narrator.png"
