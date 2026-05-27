@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script_act2.rpy", line 621: play requires a file
-    play audio.chase
-              ^
+File "game/screens/main_menu.rpy", line 21: 'play' is not a keyword argument or valid child of the screen statement.
+    play music audio.credit_theme fadein 1.0 loop
+        ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Wed May 27 11:16:49 2026
+Wed May 27 11:58:23 2026
