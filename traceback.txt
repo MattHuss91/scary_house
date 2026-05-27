@@ -1,18 +1,18 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script_act2.rpy", line 739, in script call
+  File "game/script_act2.rpy", line 742, in script call
     call cupboard_inventory
-  File "game/script_act2.rpy", line 939, in script
+  File "game/script_act2.rpy", line 961, in script
     call screen inventory_check
 AttributeError: 'str' object has no attribute 'add'
 
 -- Full Traceback ------------------------------------------------------------
 
 Traceback (most recent call last):
-  File "game/script_act2.rpy", line 739, in script call
+  File "game/script_act2.rpy", line 742, in script call
     call cupboard_inventory
-  File "game/script_act2.rpy", line 939, in script
+  File "game/script_act2.rpy", line 961, in script
     call screen inventory_check
   File "renpy/ast.py", line 2241, in execute
     self.call("execute")
@@ -95,4 +95,4 @@ AttributeError: 'str' object has no attribute 'add'
 Windows-11-10.0.26200-SP0 AMD64
 Ren'Py 8.5.2.26010301
 Scary House 0.1.0
-Mon May 25 18:26:08 2026
+Wed May 27 11:22:54 2026

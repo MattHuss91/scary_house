@@ -40,6 +40,7 @@ define audio.abba = "audio/music/abba.ogg"
 define audio.record_scratch = "audio/sfx/record_scratch.mp3"
 define audio.phone = "audio/sfx/phone.wav"
 define audio.carsh = "audio/sfx/crash.mp3"
+define audio.chase = "audio/music/chase.ogg"
 
 ## ---------------------------------------------------------------------------
 ## PLACEHOLDER AUDIO — files don't exist yet. Add before release.
@@ -50,7 +51,7 @@ define audio.scream      = "audio/sfx/scream.mp3"
 define audio.thwack      = "audio/sfx/thwack.mp3"
 define audio.fart        = "audio/sfx/fart.mp3"
 define audio.fire_whoosh = "audio/sfx/fire_whoosh.mp3"
-define audio.werewolf_growl = "audio/sfx/werewolf. mp3"
+define audio.werewolf_growl = "audio/sfx/werewolf.mp3"
 define audio.bomb_tick   = "audio/sfx/bomb_tick.mp3"
 define audio.thunder     = "audio/sfx/thunder.mp3"
 define audio.piano_sting = "audio/sfx/piano_sting.mp3" 
@@ -100,7 +101,7 @@ image lobby = "images/bg/lobby.png"
 image palor = "images/bg/palor.png"
 image dining_room = "images/bg/dining_room.png"
 image bedroom = "images/bg/bedroom.png"
-image bedroom_wreckage = "images/bg/bedroom_wreckage"
+image bedroom_wreckage = "images/bg/bedroom_wreckage.png"
 image forest_bright = "images/bg/forest_night.png"
 
 

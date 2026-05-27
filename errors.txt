@@ -2,11 +2,9 @@
 errors listed below, and try again.
 
 
-The label start is defined twice, at File "game/script.rpy", line 6:
-label start:
-and File "game/script.rpy", line 278:
-label start:
-
+File "game/script_act2.rpy", line 621: play requires a file
+    play audio.chase
+              ^
 
 Ren'Py Version: Ren'Py 8.5.2.26010301
-Tue Mar 24 09:15:04 2026
+Wed May 27 11:16:49 2026

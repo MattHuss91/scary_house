@@ -528,6 +528,7 @@ label scene_seven_intermission:
 
 label chase_minigame:
 
+    play sound audio.chase
     ## — Step 1 ----------------------------------------------------------------
     call screen chase_choice("THE COUNT IS RIGHT BEHIND YOU!", "DUCK!", "JUMP!")
     if _return == "a":
@@ -558,7 +559,7 @@ label chase_minigame:
         the_narrator "Jake slams a large oak door directly into the Count's face."
         the_narrator "The Count says something in Romanian."
         the_narrator "Jake has no idea what it means but suspects it isn't a compliment."
-
+    stop sound
     return
 
 
@@ -618,6 +619,7 @@ label scene_eight_chase:
     ## Player makes three frantic decisions — lobby background stays visible
     ## behind the red-tinted chase_choice overlay.
     call chase_minigame
+   
 
     show the_narrator at char_centre
     with dissolve

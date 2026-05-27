@@ -396,6 +396,7 @@ label after_rhythm:
     show butler at char_centre
     with dissolve
     butler "Allow me to pour, sirs."
+    hide butler with dissolve
     show jake at char_left
     with dissolve
     jake "Cheers."
