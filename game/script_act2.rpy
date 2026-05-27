@@ -167,7 +167,7 @@ screen inventory_check():
                         idle  Transform("stake", zoom=0.6)
                         hover Transform("stake", zoom=0.65)
                         xalign 0.5
-                        action [AddToSet("inventory_checked", "stake"), Return("stake")]
+                        action [AddToSet(inventory_checked, "stake"), Return("stake")]
                     text "Stake":
                         xalign 0.5 color "#cccccc" size 24
 
@@ -179,7 +179,7 @@ screen inventory_check():
                         idle  Transform("garlic", zoom=0.6)
                         hover Transform("garlic", zoom=0.65)
                         xalign 0.5
-                        action [AddToSet("inventory_checked", "garlic"), Return("garlic")]
+                        action [AddToSet(inventory_checked, "garlic"), Return("garlic")]
                     text "Garlic":
                         xalign 0.5 color "#cccccc" size 24
 
@@ -191,7 +191,7 @@ screen inventory_check():
                         idle  Transform("holy_water", zoom=0.6)
                         hover Transform("holy_water", zoom=0.65)
                         xalign 0.5
-                        action [AddToSet("inventory_checked", "water"), Return("water")]
+                        action [AddToSet(inventory_checked, "water"), Return("water")]
                     text "Holy Water":
                         xalign 0.5 color "#cccccc" size 24
 
