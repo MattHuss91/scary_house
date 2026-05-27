@@ -70,6 +70,36 @@ style return_button:
     xpos 60
     yalign 1.0
     yoffset -45
+    background None
+    hover_background None
+
+style return_button_text:
+    font "fonts/bloody.TTF"
+    size 38
+    color "#884400"
+    outlines [(2, "#000000", 0, 0)]
+
+style return_button_text_hover:
+    color "#ff4400"
+
+## Nav buttons inside game_menu
+
+style game_menu_button:
+    background None
+    hover_background None
+    ypadding 6
+
+style game_menu_button_text:
+    font "fonts/bloody.TTF"
+    size 46
+    color "#cc1a00"
+    outlines [(2, "#000000", 0, 0)]
+
+style game_menu_button_text_hover:
+    color "#ff4400"
+    outlines [(2, "#330000", 0, 0)]
+
+## Screen title label
 
 style game_menu_viewport:
     xsize config.screen_width-420
@@ -85,5 +115,9 @@ style game_menu_vscrollbar:
 
 style game_menu_label:
     padding (10, 10)
+
 style game_menu_label_text:
-    size 45
+    font "fonts/bloody.TTF"
+    size 72
+    color "#8B0000"
+    outlines [(3, "#000000", 0, 0)]

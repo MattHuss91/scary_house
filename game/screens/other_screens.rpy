@@ -18,7 +18,8 @@ screen about():
 
     tag menu
 
-    add "#21212db2" # The background; can be whatever
+    add "images/ui/background.png"
+    add Solid("#000000aa")
 
     use game_menu(_("About"))
 
@@ -55,7 +56,8 @@ screen help():
 
     default device = "keyboard"
 
-    add HBox(Solid("#292835", xsize=350), Solid("#21212db2"))
+    add "images/ui/background.png"
+    add Solid("#000000aa")
 
     use game_menu(_("Help"))
 
