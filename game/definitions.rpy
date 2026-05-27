@@ -112,13 +112,13 @@ image forest_bright = "images/bg/forest_night.png"
 #### New Objects / CG (PLACEHOLDER) ####
 ## REPLACE: swap Text() for the real .png path once art exists.
 ## These appear at char_centre via transforms, so Text() will be visible.
-image arrow = Text("→", size=400, color="#ffffff", outlines=[(2,"#000000")])
-image stake         = Text("[[ Stake ]]",         size=40, color="#c8a060", outlines=[(2,"#000000")])
-image garlic        = Text("[[ Garlic ]]",        size=40, color="#e8e8cc", outlines=[(2,"#000000")])
-image holy_water    = Text("[[ Holy Water ]]",    size=40, color="#aaddff", outlines=[(2,"#000000")])
-image bible         = Text("[[ Bible ]]",         size=40, color="#ffffcc", outlines=[(2,"#000000")])
-image bomb          = Text("[[ BOMB ]]",          size=40, color="#ff4444", outlines=[(2,"#000000")])
-image plastic_bat_toy = Text("[[ Plastic Bat Toy ]]", size=40, color="#884488", outlines=[(2,"#000000")])
+image arrow = Text("→", size=900, color="#ffffff", outlines=[(3,"#000000")])
+image stake         = "images/cg/stake.png"
+image garlic        = "images/cg/garlic.png"
+image holy_water    = "images/cg/holy_water.png"
+image bible         = "images/cg/bible.png"
+image bomb          = "images/cg/bomb.png"
+image plastic_bat_toy = "images/character/bat.png"
 
 #####Characters#####
 image the_narrator ="images/characters/narrator.png"
