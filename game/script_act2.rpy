@@ -521,6 +521,48 @@ label scene_seven_intermission:
 
 
 ################################################################################
+## CHASE MINI-GAME
+## Three QTE panic choices — all paths are silly, all paths escape.
+## Called from scene_eight_chase; returns when the chaos subsides.
+################################################################################
+
+label chase_minigame:
+
+    ## — Step 1 ----------------------------------------------------------------
+    call screen chase_choice("THE COUNT IS RIGHT BEHIND YOU!", "DUCK!", "JUMP!")
+    if _return == "a":
+        the_narrator "Jon ducks into a pile of coats."
+        the_narrator "The Count trips over Jon's legs. It is fortunate. It is also entirely accidental."
+    else:
+        the_narrator "Jake leaps over a small occasional table."
+        the_narrator "So does the Count."
+        the_narrator "They are now both jumping over the same table, which achieves very little."
+
+    ## — Step 2 ----------------------------------------------------------------
+    call screen chase_choice("HE'S STILL COMING!", "HIDE IN THE VASE!", "THROW SOMETHING!")
+    if _return == "a":
+        the_narrator "Mike is already in the vase."
+        the_narrator "There is a brief, tetchy argument about whose turn it is to be in the vase."
+        the_narrator "Nobody wins."
+    else:
+        the_narrator "Jake reaches into his coat and produces a kipper."
+        the_narrator "Nobody asks where it came from."
+        the_narrator "He throws it. The Count slips on it. This is, apparently, how Van Helsing also died."
+
+    ## — Step 3 ----------------------------------------------------------------
+    call screen chase_choice("HE'S RIGHT THERE!", "SCREAM!", "SLAM THE DOOR!")
+    if _return == "a":
+        the_narrator "Jake screams."
+        the_narrator "It achieves absolutely nothing, but everyone agrees it was very committed."
+    else:
+        the_narrator "Jake slams a large oak door directly into the Count's face."
+        the_narrator "The Count says something in Romanian."
+        the_narrator "Jake has no idea what it means but suspects it isn't a compliment."
+
+    return
+
+
+################################################################################
 ## SCENE 8 — THE CHASE
 ## Jake and Jon find Mike on the floor.  Dave gets mentioned.
 ## The Count reveals himself.  Jon remains calm about it.
@@ -562,9 +604,7 @@ label scene_eight_chase:
     with dissolve
     jon "Oh! He's a vampire! I get it now!"
 
-    ## Chase sequence — conveyed via narrator rather than attempting actual
-    ## animation, which would require far more assets than currently exist.
-    ## REVIEW: replace with animated chase CG if budget allows.
+    ## Chase sequence — QTE mini-game with three panic choices.
     hide jake
     hide jon
     hide count_bloody
@@ -573,6 +613,14 @@ label scene_eight_chase:
     show the_narrator at char_centre
     with dissolve
     the_narrator "{i}*a chaotic chase sequence ensues*{/i}"
+    hide the_narrator with dissolve
+
+    ## Player makes three frantic decisions — lobby background stays visible
+    ## behind the red-tinted chase_choice overlay.
+    call chase_minigame
+
+    show the_narrator at char_centre
+    with dissolve
     the_narrator "You know what one of the worst things you can do in film making is? Having a really dramatic scene and then switching it to something completely different!"
     hide the_narrator with dissolve
 

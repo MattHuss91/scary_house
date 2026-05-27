@@ -80,3 +80,46 @@ screen ring_the_bell():
                 action Return()
                 text_color "#888888"
                 text_hover_color "#ffffff"
+
+## Chase QTE ###
+## Called three times from label chase_minigame with different prompts.
+## Returns "a" or "b" via _return.
+
+screen chase_choice(prompt_text, choice_a, choice_b):
+    modal True
+
+    ## Red panic tint laid over the lobby background.
+    add Solid("#33000099")
+
+    frame:
+        xalign 0.5 yalign 0.35
+        padding (60, 50)
+        background Frame("gui/frame.png", 60, 60, 60, 60)
+
+        has vbox
+        spacing 24
+        xalign 0.5
+
+        text prompt_text:
+            xalign 0.5
+            color "#ff4444"
+            size 32
+            bold True
+
+        null height 10
+
+        hbox:
+            spacing 60
+            xalign 0.5
+
+            textbutton choice_a:
+                action Return("a")
+                text_size 24
+                text_color "#cccccc"
+                text_hover_color "#ffffff"
+
+            textbutton choice_b:
+                action Return("b")
+                text_size 24
+                text_color "#cccccc"
+                text_hover_color "#ffffff"
