@@ -17,7 +17,8 @@ screen save():
 
     tag menu
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
+    add "images/ui/background.png"
+    add Solid("#000000aa")
 
     use file_slots(_("Save"))
 
@@ -26,7 +27,8 @@ screen load():
 
     tag menu
 
-    add HBox(Transform("#292835", xsize=350), "#21212db2") # The background; can be whatever
+    add "images/ui/background.png"
+    add Solid("#000000aa")
 
     use file_slots(_("Load"))
 
@@ -117,7 +119,7 @@ style page_label:
 style page_label_text:
     textalign 0.5
     layout "subtitle"
-    hover_color '#ff8335'
+    hover_color '#ff4400'
 
 style slot_grid:
     xalign 0.5
@@ -140,7 +142,7 @@ style slot_button_text:
     size 21
     xalign 0.5
     idle_color '#aaaaaa'
-    hover_color '#ff8335'
+    hover_color '#ff4400'
     selected_idle_color '#ffffff'
 
 style page_hbox:
