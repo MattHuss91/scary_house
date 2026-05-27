@@ -18,34 +18,15 @@ style main_menu_button_text_hover:
 
 
 screen main_menu():
-
     tag menu
 
     ## Full-screen background
-    add "images/ui/background.png"
+    add "images/ui/menu.png"
+   
 
     ## Dark overlay — keeps text legible over any image
     add Solid("#00000077")
 
-    ## Title block — centred, top third
-    vbox:
-        xalign 0.5
-        ypos 80
-        spacing 4
-
-        text "SCARY HOUSE":
-            font "fonts/bloody.TTF"
-            size 160
-            color "#FF0000"
-            outlines [(5, "#000000", 0, 0)]
-            xalign 0.5
-
-        text "IT'S FRIGHTENING":
-            font "fonts/bloody.TTF"
-            size 60
-            color "#8B0000"
-            outlines [(2, "#000000", 0, 0)]
-            xalign 0.5
 
     ## Navigation — left side, below the title
     vbox:
