@@ -1,103 +1,43 @@
-################################################################################
-## SCRIPT_ACT2.RPY — Scenes 5–14, Mini-games, Achievements
-## "Scary House: It's Frightening"
-##
-## This file picks up where script.rpy leaves off (after Scene 4, dining room).
-## Entry point: label scene_five_bedroom  (jumped to from label after_rhythm:)
-##
-## All labels, screens, defaults, and defines are at column 1 (top level).
-## This is a Ren'Py requirement — none of these may be nested inside a label.
-################################################################################
-
-################################################################################
-## REVIEW BEFORE RELEASE
-##
-## Search the whole project for "PLACEHOLDER" before shipping.
-## The following things are known to need attention:
-##
-##  IMAGES
-##   - bedroom, bedroom_wreckage, forest_bright       (Solid() placeholders)
-##   - mike_no_trousers, count_bloody, count_on_fire,
-##     count_happy, werewolf                           (Text() placeholders)
-##   - arrow, stake, garlic, holy_water, bible,
-##     bomb, plastic_bat_toy                           (Text() placeholders)
-##   - Achievement icons (6×)                          (Solid() placeholders)
-##   See definitions.rpy for all declarations.
-##
-##  AUDIO
-##   - audio.scream, audio.thwack, audio.fart,
-##     audio.fire_whoosh, audio.werewolf_growl,
-##     audio.bomb_tick, audio.thunder, audio.piano_sting
-##   None of these .ogg/.mp3 files exist yet.
-##   See definitions.rpy for declarations.
-##   Until they exist, these will produce a Ren'Py warning but NOT crash.
-##
-##  MINI-GAMES
-##   - Arrow trail (scene 6):  positions in arrow_positions are guesses;
-##     adjust x/y once the lobby background is at final resolution.
-##   - Inventory (scene 11):   item images are Text() placeholders;
-##     imagebuttons will look odd until real art is in.
-##   - Bible words (scene 12): purely text-based, should work as-is.
-##
-##  SAVES
-##   - Existing saves from before Act 2 was added will land at label start.
-##     Players will need to replay from Scene 4 to reach the new content.
-##     Nothing to fix — just worth noting.
-################################################################################
-
-
-################################################################################
-## ACHIEVEMENTS
-##
-## Pattern: $ achievement_name.grant()
-## The plugin (achievement_backend.rpy) handles the popup automatically.
-## unlocked_image uses Solid() as a placeholder — replace with a real PNG
-## in images/achievements/ before release.
-##
-## Ren'Py note: Achievement() is defined in custom_achievements (init -500),
-## so these define statements run at init time and are available in-script.
-################################################################################
-
 define trousergeist = Achievement(
     name=_("Trousergeist"),
     id="trousergeist",
     description=_("Got startled by a bat. Lost your trousers in the process. Relatable."),
-    unlocked_image=Solid("#4a2060"),  ## PLACEHOLDER — replace with images/achievements/trousergeist.png
+    unlocked_image="images/achievements/trousergeist.png", 
 )
 
 define follow_the_red_brick_road = Achievement(
     name=_("Follow the Red Brick Road"),
     id="follow_the_red_brick_road",
     description=_("Followed all five arrows through the lobby. Mike did not enjoy what he found."),
-    unlocked_image=Solid("#7a1010"),  ## PLACEHOLDER — replace with images/achievements/follow_the_red_brick_road.png
+    unlocked_image="images/achievements/follow_the_red_brick_road.png",
 )
 
 define i_brought_snacks = Achievement(
     name=_("I Brought Snacks"),
     id="i_brought_snacks",
     description=_("Checked every useless item in the bag before finding the Bible. Thorough, at least."),
-    unlocked_image=Solid("#3a6a1a"),  ## PLACEHOLDER — replace with images/achievements/i_brought_snacks.png
+    unlocked_image="images/achievements/i_brought_snacks.png",
 )
 
 define bible_basher = Achievement(
     name=_("Bible Basher"),
     id="bible_basher",
     description=_("Read the correct holy word on the very first attempt. The Lord provides."),
-    unlocked_image=Solid("#c8c840"),  ## PLACEHOLDER — replace with images/achievements/bible_basher.png
+    unlocked_image="images/achievements/bible_basher.png",
 )
 
 define its_a_werewolf = Achievement(
     name=_("It's a Werewolf!"),
     id="its_a_werewolf",
     description=_("Stayed to watch the post-credits sting. You were warned."),
-    unlocked_image=Solid("#505050"),  ## PLACEHOLDER — replace with images/achievements/its_a_werewolf.png
+    unlocked_image= "images/achievements/its_a_werewolf.png",
 )
 
 define survivors = Achievement(
     name=_("Survivors"),
     id="survivors",
     description=_("Made it all the way through. You've earned a pint."),
-    unlocked_image=Solid("#1a4a7a"),  ## PLACEHOLDER — replace with images/achievements/survivors.png
+    unlocked_image= "images/achievements/survivors.png"
 )
 
 
@@ -356,8 +296,8 @@ label scene_five_bedroom:
     hide mike with dissolve
 
     ## Mike opens a cupboard and disturbs the bat.
-    ## PLACEHOLDER AUDIO: audio.scream — replace horn with real scream sfx
-    play sound audio.horn
+
+    play sound audio.scream
 
     show mike_no_trousers at char_right
     with dissolve
@@ -414,8 +354,8 @@ label scene_five_bedroom:
     hide the_narrator with dissolve
 
     ## Jake chases Mike out — Jake alone, Mike already off screen.
-    ## PLACEHOLDER AUDIO: audio.thwack — replace with real thwack sfx
-    play sound audio.horn
+
+    play sound audio.thwack
     show jake at char_left
     with dissolve
     jake "*grabs a cricket bat that has appeared from nowhere*"
@@ -474,7 +414,7 @@ label scene_six_arrows:
     aud "Nothing!"
 
     ## PLACEHOLDER AUDIO: audio.horn is a stand-in for laughter
-    play sound audio.horn
+    play sound audio.laughing
 
     mike "...what was that?"
     mike "Oh! An arrow on the wall. How helpful!"
@@ -533,11 +473,11 @@ label scene_six_arrows:
     show mike_no_trousers at char_left
     show count at char_right
     with dissolve
-    mike "HellO!"
+    mike "Hello!"
 
     ## The Count helps himself.
     ## PLACEHOLDER AUDIO: audio.scream for the bite gag
-    play sound audio.horn
+    play sound audio.scream
 
     hide mike_no_trousers with dissolve
     count "*cackles*"
@@ -553,16 +493,22 @@ label scene_six_arrows:
 ################################################################################
 
 label scene_seven_intermission:
-    scene black with dissolve
+    scene cinema with dissolve
     play music audio.intermission fadein 0.5
 
     centered "{size=80}{color=#ffffff}INTERMISSION{/color}{/size}"
 
+    show shelly at char_right
+    with dissolve
+    show aud at char_left
+    with dissolve
     shelly "Right. Queue here for ice cream! Tell me what flavour you want and I'll get it for you... so long as you ask for vanilla. If you don't, you can hop it!"
     aud "Shelly?"
 
-    ## PLACEHOLDER AUDIO: audio.thwack — Shelly presumably clouts someone
-    play sound audio.horn
+    play sound audio.thwack
+    hide aud with dissolve
+    show posh at char_left
+    with dissolve
 
     posh "Steward? This is worse than their Doctor Who series!"
     steward "Well you keep watching them, ma'am. What right have you to complain?"
@@ -602,7 +548,7 @@ label scene_eight_chase:
 
     ## The Count makes a dramatic entrance.
     ## PLACEHOLDER AUDIO: audio.thunder and audio.piano_sting for the reveal
-    play sound audio.horn
+    play sound audio.thunder
     hide jon
     hide mike_no_trousers
     with dissolve
@@ -668,7 +614,7 @@ label scene_ten_butler:
     with dissolve
 
     ## PLACEHOLDER AUDIO: audio.thwack — Tom takes a bop
-    play sound audio.horn
+    play sound audio.thwack
 
     tom "What was that for?"
     hide tom with dissolve
@@ -738,7 +684,7 @@ label scene_eleven_cupboard:
     jake "Why not?"
 
     ## PLACEHOLDER AUDIO: audio.fart — the answer to "why not"
-    play sound audio.horn
+    play sound audio.fart
     pause 1.0
 
     ## Now we check the bag.  call jumps into cupboard_inventory.
@@ -804,7 +750,7 @@ label scene_twelve_bible:
     show butler at char_left
     with dissolve
     ## PLACEHOLDER AUDIO: audio.thwack
-    play sound audio.horn
+    play sound audio.thwack
 
     hide count_happy with dissolve
     hide butler with dissolve
@@ -819,7 +765,7 @@ label scene_twelve_bible:
 
     ## The bomb subplot pays off.  Jon foreshadowed this in the cupboard.
     ## PLACEHOLDER AUDIO: audio.bomb_tick — looping tick until explosion
-    play sound audio.horn loop
+    play sound audio.bomb_tick loop
 
     jon "Pokemon? Oh! It's that sort of... y'know..."
     jake "What sort of... y'know... did you think I meant?!"
@@ -838,7 +784,7 @@ label scene_twelve_bible:
     stop sound
     ## Using the existing crash sound — close enough for a bomb.
     ## PLACEHOLDER: swap for a proper explosion sfx if you have one.
-    play sound audio.carsh
+    play sound audio.explode
 
     scene black with flash
     pause 1.0
@@ -910,7 +856,7 @@ label scene_fourteen_stinger:
     show werewolf at char_right
     with vpunch
     ## PLACEHOLDER AUDIO: audio.werewolf_growl
-    play sound audio.horn
+    play sound audio.werewolf_growl
 
     count "Oh! Not again!"
 
@@ -919,7 +865,7 @@ label scene_fourteen_stinger:
     with dissolve
 
     ## PLACEHOLDER AUDIO: audio.scream
-    play sound audio.horn
+    play sound audio.scream
     pause 2.0
 
     scene black with dissolve
@@ -1124,7 +1070,7 @@ label bible_correct:
     jon "\"...the Lord watches over the way of the righteous...\""
 
     ## PLACEHOLDER AUDIO: audio.fire_whoosh
-    play sound audio.horn
+    play sound audio.fire_whoosh
     hide count_bloody
     show count_on_fire at char_right
     with dissolve
